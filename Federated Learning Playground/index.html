@@ -1,0 +1,510 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="keywords" content="federated learning,multi-task learning,neural networks,machine learning,javascript">
+    <meta name="author" content="Ernest Yong">
+    <title>Federated Multi-Task Learning Playground</title>
+
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500|Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- KaTeX (LaTeX rendering) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: "\\(", right: "\\)", display: false },
+            { left: "\\[", right: "\\]", display: true },
+            { left: "$$", right: "$$", display: true }
+          ],
+          // Keep KaTeX from touching code/pseudocode blocks
+          ignoredTags: ["script", "noscript", "style", "textarea"],
+          throwOnError: false
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <!-- GitHub link -->
+    <a class="github-link" href="https://github.com/ernyo/Federated-Playground" title="Source on GitHub" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.5 60.5" width="60" height="60">
+        <polygon class="bg" points="60.5,60.5 0,0 60.5,0 "/>
+        <path class="icon" d="M43.1,5.8c-6.6,0-12,5.4-12,12c0,5.3,3.4,9.8,8.2,11.4c0.6,0.1,0.8-0.3,0.8-0.6c0-0.3,0-1,0-2c-3.3,0.7-4-1.6-4-1.6c-0.5-1.4-1.3-1.8-1.3-1.8c-1.1-0.7,0.1-0.7,0.1-0.7c1.2,0.1,1.8,1.2,1.8,1.2c1.1,1.8,2.8,1.3,3.5,1c0.1-0.8,0.4-1.3,0.8-1.6c-2.7-0.3-5.5-1.3-5.5-5.9c0-1.3,0.5-2.4,1.2-3.2c-0.1-0.3-0.5-1.5,0.1-3.2c0,0,1-0.3,3.3,1.2c1-0.3,2-0.4,3-0.4c1,0,2,0.1,3,0.4c2.3-1.6,3.3-1.2,3.3-1.2c0.7,1.7,0.2,2.9,0.1,3.2c0.8,0.8,1.2,1.9,1.2,3.2c0,4.6-2.8,5.6-5.5,5.9c0.4,0.4,0.8,1.1,0.8,2.2c0,1.6,0,2.9,0,3.3c0,0.3,0.2,0.7,0.8,0.6c4.8-1.6,8.2-6.1,8.2-11.4C55.1,11.2,49.7,5.8,43.1,5.8z"/>
+      </svg>
+    </a>
+
+    <!-- Header -->
+    <header>
+      <h1 class="l--page">
+        <b>Federated Learning Playground</b>
+        <br>
+        For Multi-Task Learning
+      </h1>
+    </header>
+
+    <!-- Top Controls -->
+    <div id="top-controls">
+      <div class="container l--page">
+
+        <div id="top-container">
+          <div>
+            <div id="left-top-container">
+              <div class="timeline-controls">
+                <button class="mdl-button mdl-js-button mdl-button--icon ui-resetButton" id="reset-button" title="Reset experiment">
+                  <i class="material-icons">replay</i>
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored ui-playButton" id="play-pause-button" title="Run/Pause">
+                  <i class="material-icons">play_arrow</i>
+                  <i class="material-icons">pause</i>
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--icon ui-stepButton global" id="next-step-button" title="Step">
+                  <i class="material-icons">skip_next</i>
+                </button>
+              </div>
+
+              <div class="control">
+                <span class="label">Round</span>
+                <span class="value" id="iter-number"></span>
+              </div>
+            </div>
+
+            <div id="right-top-container">
+              <button id="experiment-button" class="basic-button">Experiment mode</button>
+            </div>
+          </div>
+
+          <div id="right-container">
+            
+            <!-- Client controls -->
+            <div class="control">
+              <label for="learningRate">Learning rate</label>
+              <div class="select">
+                <select id="learningRate">
+                  <option value="0.00001">0.00001</option>
+                  <option value="0.00003">0.00003</option>
+                  <option value="0.0001">0.0001</option>
+                  <option value="0.001">0.001</option>
+                  <option value="0.003">0.003</option>
+                  <option value="0.01">0.01</option>
+                  <option value="0.03">0.03</option>
+                  <option value="0.1">0.1</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="control">
+              <label for="activations">Activation</label>
+              <div class="select">
+                <select id="activations">
+                  <option value="relu">ReLU</option>
+                  <option value="tanh">Tanh</option>
+                  <option value="sigmoid">Sigmoid</option>
+                  <option value="linear">Linear</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="control">
+              <label for="regularizations">Regularization</label>
+              <div class="select">
+                <select id="regularizations">
+                  <option value="none">None</option>
+                  <option value="l1">L1</option>
+                  <option value="l2">L2</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="control">
+              <label for="regularRate">Regularization rate</label>
+              <div class="select">
+                <select id="regularRate">
+                  <option value="0">0</option>
+                  <option value="0.00001">0.00001</option>
+                  <option value="0.00003">0.00003</option>
+                  <option value="0.0001">0.0001</option>
+                  <option value="0.0003">0.0003</option>
+                  <option value="0.001">0.001</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Server controls -->
+            <div class="control">
+              <label for="epochs-per-client">Epochs per client</label>
+              <div class="select">
+                <select id="epochs-per-client">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="control global">
+              <label for="encoder-agg">Encoder aggregation</label>
+              <div class="select">
+                <select id="encoder-agg">
+                  <option value="none">None</option>
+                  <option value="fedavg">FedAvg</option>
+                  <option value="conflict_averse">Conflict Averse</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="control global">
+              <label for="decoder-agg">Decoder aggregation</label>
+              <div class="select">
+                <select id="decoder-agg">
+                  <option value="none">None</option>
+                  <option value="fedavg">FedAvg</option>
+                  <option value="cross_attention">Cross Attention</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="control global">
+              <label for="cac">CA C</label>
+              <div class="select">
+                <select id="cac">
+                  <option value="0">0</option>
+                  <option value="0.1">0.1</option>
+                  <option value="0.2">0.2</option>
+                  <option value="0.3">0.3</option>
+                  <option value="0.4">0.4</option>
+                  <option value="0.5">0.5</option>
+                  <option value="0.6">0.6</option>
+                  <option value="0.7">0.7</option>
+                  <option value="0.8">0.8</option>
+                  <option value="0.9">0.9</option>
+                  <option value="1">1</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="control global" id="rounds-control">
+              <label for="rounds">Rounds</label>
+              <div class="select">
+                <select id="rounds">
+                  <option value="1">1</option>
+                  <option value="10">10</option>
+                  <option value="20">20</option>
+                  <option value="30">30</option>
+                  <option value="40">40</option>
+                  <option value="50">50</option>
+                  <option value="60">60</option>
+                  <option value="70">70</option>
+                  <option value="80">80</option>
+                  <option value="90">90</option>
+                  <option value="100">100</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div id="bottom-container">
+          <div id="experiment-view" style="display: none;">
+            <h4>
+              <div class="ui-numTasks">
+                <button id="add-experiment" class="mdl-button mdl-js-button mdl-button--icon">
+                  <i class="material-icons">add</i>
+                </button>
+                <button id="remove-experiment" class="mdl-button mdl-js-button mdl-button--icon">
+                  <i class="material-icons">remove</i>
+                </button>
+              </div>
+              <span id="num-experiments" class="number"></span>
+              <span id="experiment-label" class="heading"></span>
+            </h4>
+            <div id="experiments"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="server-view" class="view">
+      <div class="container l--page">
+        <!-- Client -->
+        <div id="client-stats" class="column">
+          <h4>
+            <div class="ui-numTasks">
+              <button id="add-clients" class="mdl-button mdl-js-button mdl-button--icon">
+                <i class="material-icons">add</i>
+              </button>
+              <button id="remove-clients" class="mdl-button mdl-js-button mdl-button--icon">
+                <i class="material-icons">remove</i>
+              </button>
+            </div>
+            <span id="num-clients" class="number"></span>
+            <span id="clients-label" class="heading"></span>
+          </h4>
+          <div id="clients"></div>
+        </div>
+
+        <!-- Server -->
+        <div id="server-stats" class="column">
+          <h4>Server</h4>
+          <div id="server-metrics" class="metrics-row">
+            <div class="table">
+
+              <div class="server-chart metrics">
+                <div class="output-stats">
+                  <div class="tooltip">
+                    &#63;
+                    <div class="tooltiptext">
+                      <div class="tip-title">Mean Delta Norm</div>
+                      <span>The magnitude of the aggregated/global update direction.</span>
+                      <ul>
+                        <li><b>Large</b>: clients agree enough that the average produces a strong step.</li>
+                        <li><b>Small</b>: updates cancel out (client conflict) or everyone's updates are tiny.</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <span>Mean delta norm</span>
+
+                  <div class="value">—</div>
+                </div>
+                <div class="linechart" data-metric="meanDeltaNorm"></div>
+              </div>
+
+              <div class="server-chart metrics">
+                <div class="output-stats">
+                  <div class="tooltip">
+                    &#63;
+                    <div class="tooltiptext">
+                      <div class="tip-title">Mean Client Delta Norm</div>
+                      <span>The average strength of local learning per client (how big each client's update is).</span>
+                      <ul>
+                        <li><b>Large</b>: clients are making big changes (early training, high LR, hard data, or unstable).</li>
+                        <li><b>Small</b>: clients are near convergence or learning slowly.</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <span>Mean client delta norm</span>
+
+                  <div class="value">—</div>
+                </div>
+                <div class="linechart" data-metric="meanClientDeltaNorm"></div>
+              </div>
+
+              <div class="server-chart metrics">
+                <div class="output-stats">
+                  <div class="tooltip">
+                    &#63;
+                    <div class="tooltiptext">
+                      <div class="tip-title">Mean Distance to Mean</div>
+                      <span>The average distance of each client's update from the mean update.</span>
+                      <ul>
+                        <li><b>Large</b>: clients are pulling in different directions (non-IID, different tasks, different data, noisy training).</li>
+                        <li><b>Small</b>: clients' updates are similar (IID-ish or homogeneous clients).</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <span>Mean distance to mean</span>
+
+                  <div class="value">—</div>
+                </div>
+                <div class="linechart" data-metric="meanDistToMean"></div>
+              </div>
+              
+              <div class="server-chart metrics">
+                <div class="output-stats">
+                  <div class="tooltip">
+                    &#63; 
+                    <div class="tooltiptext">
+                      <div class="tip-title">Mean Cosine Similarity</div>
+                      <span>The average alignment of client update directions.</span>
+                      <ul>
+                        <li><b>+1:</b> perfectly aligned</li>
+                        <li><b>0:</b> orthogonal (unrelated)</li>
+                        <li><b>-1:</b> opposite directions (strong conflict)</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <span>Mean cosine similarity</span>
+
+                  <div class="value">—</div>
+                </div>
+                <div class="linechart" data-metric="meanCosine"></div>
+              </div>
+
+              <div class="server-chart metrics">
+                <div class="output-stats">
+                  <div class="tooltip">
+                    &#63; 
+                    <div class="tooltiptext">
+                      <div class="tip-title">Fraction of Negative Cosines</div>
+                      <span>The fraction of client pairs whose updates are in conflict (pointing in opposite directions).</span>
+                      <ul>
+                        <li><b>0.0</b>: no pairwise conflicts (good).</li>
+                        <li><b>0.2-0.5</b>: substantial conflicts (typical under strong non-IID).</li>
+                        <li><b>0.5-1.0</b>: most pairs in conflict (severe non-IID or instability).</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <span>Fraction of negative cosines</span>
+
+                  <div class="value">—</div>
+                </div>
+                <div class="linechart" data-metric="fracNegativeCosine"></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <div id="main-container"></div>
+
+    <!-- Article -->
+
+    <article id="article-text">
+      <div class="l--body">
+        <h2>What Is Federated Learning?</h2>
+        <p>Federated Learning is a decentralized machine learning paradigm proposed by <a href="https://cloud.google.com/discover/what-is-federated-learning">Google</a> to address data isolation and privacy concerns in large-scale, data-driven systems. Unlike centralized learning, where data is collected and stored in a single repository, Federated Learning trains models directly on clients’ local datasets and exchanges only model parameters or updates for server-side aggregation.</p>
+          
+        <p>By keeping sensitive data decentralized, Federated Learning significantly reduces privacy and security risks while enabling collaborative model training across parties, which is crucial for privacy-sensitive domains such as healthcare, transportation, and finance. A notable example is the collaborative development of AI models for <a href="https://hai.stanford.edu/news/pandemic-ai-engine-without-borders">COVID-19 diagnosis</a> from medical imaging data across institutions worldwide, where Federated Learning enabled effective model training while preserving patient privacy.</p>
+      </div>
+
+      <div class="l--body">
+        <h2>What Is Federated Multi-Task Learning?</h2>
+        <p>Local datasets often exhibit substantial statistical heterogeneity due to differences in population characteristics, data collection procedures, and data quantity or quality, which can significantly degrade convergence and generalization in Federated Learning. Moreover, task heterogeneity occurs as clients may not want to optimize their models for the same objectives due to variations in application requirements or task definitions, limiting the suitability of a single global model.</p>
+        
+        <p>Rather than producing one global model, Federated Multi-Task Learning aims to learn client-specific models that preserve task-level differences while still enabling cross-client knowledge transfer by capturing shared structure across clients. This is particularly relevant in settings where client data is limited or highly specialized, as leveraging shared information can improve learning efficiency and robustness.</p>
+      </div>
+
+      <div class="l--body">
+        <h2>How Does Training Work?</h2>
+        <p>In a standard client-server Federated Multi-Task Learning setting with \(N\) clients, each client \(C_i\) maintains model parameters \(\theta_i\) and trains locally on its private dataset. Training proceeds for \(R\) communication rounds. In each round, model parameters of previous round \(\theta^{(r-1)}\) and the updates in current round \(\Delta\theta^{(r)}\) from all clients are sent to the server for aggregation. After each training round, client-level and server-level metrics are collected and processed for visualization.</p>
+
+        <p>Pseudocode:</p>
+        <pre class="pseudocode"><code>
+        Server Update
+        1  for each communication round \( r \in \{1,\ldots,R\} \) do
+        2    for each client \( C_i \) do
+        3      \( \Delta\theta_i^{(r)} \leftarrow \mathrm{ClientUpdate}\!\left(\theta_i^{(r-1)}\right) \)
+        4    end for
+        5    Server gathers updates of client models \( \Delta\theta^{(r)} \)
+        6    \( \theta^{(r)} \leftarrow \mathrm{Aggregation}\!\left(\theta^{(r-1)}, \Delta\theta^{(r)}\right) \)
+        7  end for
+
+        Client Update\( \left(\theta_i^{(r-1)}\right) \)
+        1  \( \theta_i \leftarrow \theta_i^{(r-1)} \)
+        2  for each local epoch \( e \in \{1,\ldots,E\} \) do
+        3    for batch \( B_i \) do
+        4      Compute loss \( L_i=\sum_{t\in T_i}\lambda_t\,L_i^t(\theta_i;B_i) \)
+        5      Update \( \theta_i \leftarrow \theta_i-\eta\,\nabla_{\theta_i}L_i \)
+        6    end for
+        7  end for
+        8  return \( \Delta\theta_i^{(r)}=\theta_i-\theta_i^{(r-1)} \)
+        </code></pre>
+      </div>
+
+      <div class="l--body">
+        <h2>What Aggregation Algorithms Are Available?</h2>
+
+        <p>The most common Federated Learning algorithm is <a href="https://arxiv.org/abs/1602.05629">FedAvg</a>. In each training round, clients’ updated parameters are collected by the server after their respective local training, which computes a data-size-weighted average to form the next global model:</p>
+
+        <p>
+          \[
+            \theta^{(r)}=\sum_{k\in S_r}\frac{s_k}{\sum_j s_j}\,\theta_k^{(r)}
+          \]
+        </p>
+
+        <p>where \(s_k\) is the number of samples used by client \(k\) during local training, and \(\theta_k^{(r)}\) denotes the client’s model parameters after local training.</p>
+        <p>FedAvg performs best when the clients have similar data distributions and task setups.</p>
+
+        <p>In contrast, <a href="https://arxiv.org/abs/2311.13250">FedHCA²</a> is a framework specifically designed to address data and task heterogeneity by disassembling client models into encoders and decoders for decoupled aggregation and redistributing the updates to each client’s model.</p>
+
+        <p>For encoders, Hyper Conflict-Averse Aggregation is used to alleviate update conflicts among clients by finding an optimal aggregated encoder update direction \(\tilde{U}\) to mitigate the negative effects of conflicting parameter updates:</p>
+
+        <p>
+          \[
+            \tilde{U}=\bar{\Delta\theta}^{E}+\frac{\sqrt{\Phi}}{\lVert U_w\rVert}\,U_w
+          \]
+          \[
+            U_w=\frac{1}{N}\sum_{i=1}^{N} w_i\,\Delta\theta_i^{E}
+            \qquad
+            \Phi=c^2\left\lVert \bar{\Delta\theta}^{E}\right\rVert^2
+          \]
+        </p>
+
+        <p>For decoders, Hyper Cross Attention Aggregation performs layer-wise attention-weighted aggregation to capture both the commonalities and discrepancies among tasks, allowing for fine-grained personalized aggregation that alleviates model incongruity:</p>
+
+        <p>
+          \[
+            \tilde{\theta}_i^{D}=\sum_{j=1}^{N}\gamma_{i,j}\,\theta_j^{D}
+          \]
+          \[
+            V_l=\left[\Delta\theta_{1,l}^{D},\ldots,\Delta\theta_{K,l}^{D}\right]^{\top}
+          \]
+          \[
+            \tilde{A}_{i,l}=\mathrm{Softmax}\!\left(\frac{\Delta\theta_{i,l}^{D} V_l^{\top}}{\sqrt{d}}\right)V_l
+          \]
+        </p>
+
+        <p>where \(\Delta\theta_{i,l}^{D}\) and \(\tilde{A}_{i,l}\) are the original update and aggregated update for the \(l\)-th layer of the \(i\)-th decoder, with dimension \(d\).</p>
+
+        <p>FedHCA² performs better than FedAvg in heterogeneous settings, especially when clients have significantly different data distributions and tasks.</p>
+      </div>
+
+      <div class="l--body">
+        <h2>Credits</h2>
+        <p>
+          This work was inspired by Google's <a href="https://playground.tensorflow.org/">Tensorflow Playground</a> and Oseltamivir's <a href="https://oseltamivir.github.io/playground">Federated Learning Playground</a> and developed using <a href="https://www.tensorflow.org/js">TensorFlow.js</a>.
+        </p>
+      </div>
+    </article>
+
+    <!-- Footer -->
+    <footer>
+      <div class="l--body">
+        <a href="https://www.tensorflow.org/" class="logo">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 528 87" xml:space="preserve">
+            <path d="M37.4,15.5v70.3H25V15.5H1V3.4h60.4v12.1H37.4z"/>
+            <path d="M149,85.8v-35c0-12.5-4.7-16.9-12.7-16.9c-8.1,0-12.7,5.8-12.7,15.8v36.1h-12.1V24h12.1v5.9c3.1-4.5,9.2-7.2,15.5-7.2
+              c14.4,0,22,9.4,22,27.7v35.4H149z"/>
+            <path d="M188.7,87.1c-8.4,0-17.4-3.3-23.7-7.9l5.5-9.2c5.8,4,12.2,6.1,18,6.1c7.7,0,11.3-2.5,11.3-6.8c0-4.7-5.4-6.9-14.4-10.4
+              c-13.3-5.2-18.1-9.7-18.1-19.4c0-11.1,8.7-16.8,21.1-16.8c7.8,0,15.4,2.8,21,6.8l-5.3,9.3c-5.1-3.5-10.1-5.3-16-5.3
+              c-5.9,0-8.5,2.4-8.5,5.7c0,3.1,2.1,5.3,11.4,8.9c13.8,5.3,20.8,9.1,20.8,20.7C211.9,82.5,200.8,87.1,188.7,87.1z"/>
+            <path d="M242,87.1c-15.5,0-27.2-12.8-27.2-32.1c0-20.2,12-32.3,27.5-32.3c15.8,0,27.5,12.6,27.5,31.9
+              C269.9,75.1,257.9,87.1,242,87.1z M241.9,34.3c-9.2,0-14.8,8.1-14.8,20.4c0,13.5,6.2,21,15.4,21c9.2,0,15.2-9.3,15.2-20.6
+              C257.7,42.4,251.7,34.3,241.9,34.3z"/>
+            <path d="M310,36.8c-2.6-1.4-5.3-2.2-9.3-2.2c-7.7,0-12.1,5.4-12.1,15.9v35.3h-12.1V24h12.1v5.9c2.8-4.1,8-7.2,14.1-7.2
+              c4.9,0,8,0.9,10.5,2.6L310,36.8z"/>
+            <path d="M330.3,15.5v21.5H354v12.1h-23.7v36.6H318V3.4h50.3v12.1H330.3z"/>
+            <path d="M374.5,85.8V6.4L386.6,0v85.8H374.5z"/>
+            <path d="M421.9,87.1c-15.5,0-27.2-12.8-27.2-32.1c0-20.2,12-32.3,27.5-32.3c15.8,0,27.5,12.6,27.5,31.9
+              C449.8,75.1,437.7,87.1,421.9,87.1z M421.7,34.3c-9.2,0-14.8,8.1-14.8,20.4c0,13.5,6.2,21,15.4,21c9.2,0,15.2-9.3,15.2-20.6
+              C437.5,42.4,431.5,34.3,421.7,34.3z"/>
+            <path d="M510.9,85.8h-10.4l-8.4-31.2c-1.3-4.7-2.6-10.2-3.2-13.2c-0.6,2.9-1.9,8.6-3.2,13.3l-8.2,31.1h-10.4L450.3,24h12l7.3,30
+              c1.2,4.7,2.5,10.6,3.1,13.5c0.7-3.1,2.1-8.7,3.4-13.5l8.2-30h9.8l8.4,30.1c1.3,4.8,2.6,10.4,3.3,13.4c0.7-3.1,1.9-8.8,3.1-13.5
+              l7.3-30h12L510.9,85.8z"/>
+            <path d="M79.1,76.2c-6.7,0-12.7-4-14.9-13.2l40.5-12.2c-0.2-2.8-0.6-5.4-1.3-8c-3-11.6-11.1-20.1-24.7-20.1
+              c-16,0-27.1,11.3-27.1,32.3c0,20.5,12.2,32.1,26.7,32.1c9.4,0,15.9-2.9,21.3-8.1l-7.2-7.8C88.4,74.3,84.3,76.2,79.1,76.2z
+            M78,33.7c7.9,0,12.1,4.5,13.8,10.5l-27.9,8.5l0-3.5C64.9,39.3,69.8,33.7,78,33.7z"/>
+          </svg>
+        </a>
+        <div class="links">
+          <a href="https://github.com/ernyo/Federated-Playground">Source on GitHub</a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

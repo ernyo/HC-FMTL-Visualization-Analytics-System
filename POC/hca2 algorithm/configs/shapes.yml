@@ -1,0 +1,24 @@
+# Dataset
+db_name: 'shapes'
+tasks: ['seg', 'edge']  # Tasks for this client
+n_classes:
+  seg: 3
+  edge: 1
+
+# Training parameters
+tr_batch: 4
+val_batch: 2
+nworkers: 2
+
+# Model
+model_name: 'deeplabv3plus'
+encoder: 'resnet34'
+decoder: 'deeplabv3plus'
+
+# Input size
+input_size: [256, 256]
+
+# Federated Learning
+n_clients: 3
+local_epochs: 1
+max_rounds: 100

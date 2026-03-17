@@ -1,0 +1,4512 @@
+{
+  "header": {
+    "timestamp": "2026-03-13T06:51:29.689Z",
+    "clients": [
+      {
+        "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+        "data": {
+          "seed": 82113233,
+          "numSamples": 100,
+          "numShapes": 1,
+          "typeShapes": [
+            {
+              "type": "circle",
+              "probability": 0.25
+            },
+            {
+              "type": "square",
+              "probability": 0.25
+            },
+            {
+              "type": "triangle",
+              "probability": 0.25
+            },
+            {
+              "type": "star",
+              "probability": 0.25
+            }
+          ],
+          "resolution": 32,
+          "batchSize": 16,
+          "percTrain": 80
+        },
+        "model": {
+          "activation": "relu",
+          "regularization": "l2",
+          "regularizationRate": 0.0001,
+          "learningRate": 0.01,
+          "taskConfig": [
+            {
+              "name": "semseg",
+              "enabled": true,
+              "loss": "categoricalCrossEntropy",
+              "metric": "meanIoU",
+              "lossWeight": 1,
+              "filters": 5
+            },
+            {
+              "name": "edge",
+              "enabled": true,
+              "loss": "binaryCrossEntropy",
+              "metric": "odsF",
+              "lossWeight": 1,
+              "filters": 1
+            },
+            {
+              "name": "saliency",
+              "enabled": true,
+              "loss": "binaryCrossEntropy",
+              "metric": "f1",
+              "lossWeight": 1,
+              "filters": 1
+            },
+            {
+              "name": "depth",
+              "enabled": true,
+              "loss": "meanSquaredError",
+              "metric": "rmse",
+              "lossWeight": 1,
+              "filters": 1
+            },
+            {
+              "name": "normal",
+              "enabled": true,
+              "loss": "meanSquaredError",
+              "metric": "meanAngularErr",
+              "lossWeight": 1,
+              "filters": 3
+            }
+          ]
+        }
+      },
+      {
+        "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+        "data": {
+          "seed": 92591875,
+          "numSamples": 100,
+          "numShapes": 1,
+          "typeShapes": [
+            {
+              "type": "circle",
+              "probability": 0.25
+            },
+            {
+              "type": "square",
+              "probability": 0.25
+            },
+            {
+              "type": "triangle",
+              "probability": 0.25
+            },
+            {
+              "type": "star",
+              "probability": 0.25
+            }
+          ],
+          "resolution": 32,
+          "batchSize": 16,
+          "percTrain": 80
+        },
+        "model": {
+          "activation": "relu",
+          "regularization": "l2",
+          "regularizationRate": 0.0001,
+          "learningRate": 0.01,
+          "taskConfig": [
+            {
+              "name": "semseg",
+              "enabled": true,
+              "loss": "categoricalCrossEntropy",
+              "metric": "meanIoU",
+              "lossWeight": 1,
+              "filters": 5
+            },
+            {
+              "name": "edge",
+              "enabled": true,
+              "loss": "binaryCrossEntropy",
+              "metric": "odsF",
+              "lossWeight": 1,
+              "filters": 1
+            },
+            {
+              "name": "saliency",
+              "enabled": true,
+              "loss": "binaryCrossEntropy",
+              "metric": "f1",
+              "lossWeight": 1,
+              "filters": 1
+            },
+            {
+              "name": "depth",
+              "enabled": true,
+              "loss": "meanSquaredError",
+              "metric": "rmse",
+              "lossWeight": 1,
+              "filters": 1
+            },
+            {
+              "name": "normal",
+              "enabled": true,
+              "loss": "meanSquaredError",
+              "metric": "meanAngularErr",
+              "lossWeight": 1,
+              "filters": 3
+            }
+          ]
+        }
+      },
+      {
+        "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+        "data": {
+          "seed": 36545853,
+          "numSamples": 100,
+          "numShapes": 1,
+          "typeShapes": [
+            {
+              "type": "circle",
+              "probability": 0.25
+            },
+            {
+              "type": "square",
+              "probability": 0.25
+            },
+            {
+              "type": "triangle",
+              "probability": 0.25
+            },
+            {
+              "type": "star",
+              "probability": 0.25
+            }
+          ],
+          "resolution": 32,
+          "batchSize": 16,
+          "percTrain": 80
+        },
+        "model": {
+          "activation": "relu",
+          "regularization": "l2",
+          "regularizationRate": 0.0001,
+          "learningRate": 0.01,
+          "taskConfig": [
+            {
+              "name": "semseg",
+              "enabled": true,
+              "loss": "categoricalCrossEntropy",
+              "metric": "meanIoU",
+              "lossWeight": 1,
+              "filters": 5
+            },
+            {
+              "name": "edge",
+              "enabled": true,
+              "loss": "binaryCrossEntropy",
+              "metric": "odsF",
+              "lossWeight": 1,
+              "filters": 1
+            },
+            {
+              "name": "saliency",
+              "enabled": true,
+              "loss": "binaryCrossEntropy",
+              "metric": "f1",
+              "lossWeight": 1,
+              "filters": 1
+            },
+            {
+              "name": "depth",
+              "enabled": true,
+              "loss": "meanSquaredError",
+              "metric": "rmse",
+              "lossWeight": 1,
+              "filters": 1
+            },
+            {
+              "name": "normal",
+              "enabled": true,
+              "loss": "meanSquaredError",
+              "metric": "meanAngularErr",
+              "lossWeight": 1,
+              "filters": 3
+            }
+          ]
+        }
+      }
+    ],
+    "server": {
+      "epochsPerClient": 5,
+      "encoderAgg": "none",
+      "decoderAgg": "none",
+      "caC": 0,
+      "rounds": 30
+    }
+  },
+  "rounds": [
+    {
+      "round": 0,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 5,
+          "lossTrain": 1.840938687324524,
+          "lossTest": 1.817301630973816,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.9262129068374634,
+              "trainMetric": 0.1734035164117813,
+              "testLoss": 0.9179781079292297,
+              "testMetric": 0.18789389729499817
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.1590014100074768,
+              "trainMetric": 0.17809277772903442,
+              "testLoss": 0.1638932228088379,
+              "testMetric": 0.14971952140331268
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.567709743976593,
+              "trainMetric": 0,
+              "testLoss": 0.5705883502960205,
+              "testMetric": 0
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.03186334669589996,
+              "trainMetric": 0.3500973582267761,
+              "testLoss": 0.033124785870313644,
+              "testMetric": 0.4136776030063629
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.13655315339565277,
+              "trainMetric": 19.705121994018555,
+              "testLoss": 0.13171720504760742,
+              "testMetric": 16.910646438598633
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 5,
+          "lossTrain": 1.9155906438827515,
+          "lossTest": 2.134235382080078,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.99225252866745,
+              "trainMetric": 0.16548898816108704,
+              "testLoss": 1.130519151687622,
+              "testMetric": 0.16359619796276093
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.1608647108078003,
+              "trainMetric": 0.14626586437225342,
+              "testLoss": 0.17674565315246582,
+              "testMetric": 0.2079068422317505
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.5734842419624329,
+              "trainMetric": 0,
+              "testLoss": 0.6296242475509644,
+              "testMetric": 0
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.03293655067682266,
+              "trainMetric": 0.3760468065738678,
+              "testLoss": 0.04014647752046585,
+              "testMetric": 0.36536741256713867
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.13873708248138428,
+              "trainMetric": 23.629240036010742,
+              "testLoss": 0.15719996392726898,
+              "testMetric": 22.910757064819336
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 5,
+          "lossTrain": 2.027925729751587,
+          "lossTest": 2.124401092529297,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 1.0430595874786377,
+              "trainMetric": 0.1621006578207016,
+              "testLoss": 1.1606782674789429,
+              "testMetric": 0.16457031667232513
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.1739126294851303,
+              "trainMetric": 0.1603362262248993,
+              "testLoss": 0.16614285111427307,
+              "testMetric": 0.19949820637702942
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.5883587002754211,
+              "trainMetric": 0,
+              "testLoss": 0.618317723274231,
+              "testMetric": 0
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.03491044417023659,
+              "trainMetric": 0.3482235372066498,
+              "testLoss": 0.034302111715078354,
+              "testMetric": 0.3644477427005768
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.16903874278068542,
+              "trainMetric": 30.172639846801758,
+              "testLoss": 0.14496023952960968,
+              "testMetric": 26.320911407470703
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 22.690292358398438,
+        "meanClientDeltaNorm": 39.34436289469401,
+        "meanDistToMean": 32.14249165852865,
+        "meanCosine": -0.0011125682309890788,
+        "fracNegativeCosine": 0.6666666666666666
+      },
+      "deltaM": -0.04078299188370082
+    },
+    {
+      "round": 1,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 10,
+          "lossTrain": 1.5334054231643677,
+          "lossTest": 1.5308986902236938,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.7155823111534119,
+              "trainMetric": 0.1734035164117813,
+              "testLoss": 0.6866179704666138,
+              "testMetric": 0.18789389729499817
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.15293656289577484,
+              "trainMetric": 0.2985472083091736,
+              "testLoss": 0.17087744176387787,
+              "testMetric": 0.2887353003025055
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.5056835412979126,
+              "trainMetric": 0,
+              "testLoss": 0.5307258367538452,
+              "testMetric": 0
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.03178191930055618,
+              "trainMetric": 0.41595059633255005,
+              "testLoss": 0.02524120919406414,
+              "testMetric": 0.3329928517341614
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.11424341797828674,
+              "trainMetric": 16.730724334716797,
+              "testLoss": 0.11743617057800293,
+              "testMetric": 17.14789390563965
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 10,
+          "lossTrain": 0.9075300097465515,
+          "lossTest": 0.93016117811203,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.42001256346702576,
+              "trainMetric": 0.16548898816108704,
+              "testLoss": 0.44421473145484924,
+              "testMetric": 0.16359619796276093
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.1142081618309021,
+              "trainMetric": 0.32971328496932983,
+              "testLoss": 0.13049374520778656,
+              "testMetric": 0.41322699189186096
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.2490812987089157,
+              "trainMetric": 0,
+              "testLoss": 0.23787422478199005,
+              "testMetric": 0
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.01698916032910347,
+              "trainMetric": 0.27692222595214844,
+              "testLoss": 0.02131921611726284,
+              "testMetric": 0.25972041487693787
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.09152942150831223,
+              "trainMetric": 15.644609451293945,
+              "testLoss": 0.09625933319330215,
+              "testMetric": 18.713979721069336
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 10,
+          "lossTrain": 0.9907689690589905,
+          "lossTest": 0.9241199493408203,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.4502781629562378,
+              "trainMetric": 0.1621006578207016,
+              "testLoss": 0.444598525762558,
+              "testMetric": 0.16457031667232513
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.1312253177165985,
+              "trainMetric": 0.3536878228187561,
+              "testLoss": 0.11947794258594513,
+              "testMetric": 0.3716467022895813
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.2760501503944397,
+              "trainMetric": 0,
+              "testLoss": 0.24161414802074432,
+              "testMetric": 0
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.024569431319832802,
+              "trainMetric": 0.33977311849594116,
+              "testLoss": 0.03155717998743057,
+              "testMetric": 0.35416802763938904
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.08914093673229218,
+              "trainMetric": 18.446653366088867,
+              "testLoss": 0.08687211573123932,
+              "testMetric": 18.079500198364258
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 3.582831382751465,
+        "meanClientDeltaNorm": 6.249631881713867,
+        "meanDistToMean": 5.130132675170898,
+        "meanCosine": -0.008162819489371032,
+        "fracNegativeCosine": 0.6666666666666666
+      },
+      "deltaM": -0.32611698251064075
+    },
+    {
+      "round": 2,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 15,
+          "lossTrain": 0.7546948194503784,
+          "lossTest": 0.7055196762084961,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.3173576891422272,
+              "trainMetric": 0.24489378929138184,
+              "testLoss": 0.28577089309692383,
+              "testMetric": 0.2888549566268921
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.11360268294811249,
+              "trainMetric": 0.40713778138160706,
+              "testLoss": 0.11558134853839874,
+              "testMetric": 0.4755244255065918
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.20654501020908356,
+              "trainMetric": 0,
+              "testLoss": 0.20666718482971191,
+              "testMetric": 0
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.01339702121913433,
+              "trainMetric": 0.2540630102157593,
+              "testLoss": 0.016459859907627106,
+              "testMetric": 0.2768698036670685
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.08276526629924774,
+              "trainMetric": 17.28660011291504,
+              "testLoss": 0.0810404047369957,
+              "testMetric": 16.73857307434082
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 15,
+          "lossTrain": 0.6360015869140625,
+          "lossTest": 0.7283849716186523,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.27360156178474426,
+              "trainMetric": 0.26473820209503174,
+              "testLoss": 0.32211023569107056,
+              "testMetric": 0.34833717346191406
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.08136959373950958,
+              "trainMetric": 0.5801250338554382,
+              "testLoss": 0.09522651880979538,
+              "testMetric": 0.5750594735145569
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.16806094348430634,
+              "trainMetric": 0,
+              "testLoss": 0.20630501210689545,
+              "testMetric": 0
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.012459208257496357,
+              "trainMetric": 0.2458304911851883,
+              "testLoss": 0.016249964013695717,
+              "testMetric": 0.2522854506969452
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.07482267916202545,
+              "trainMetric": 15.649740219116211,
+              "testLoss": 0.0884932428598404,
+              "testMetric": 18.8560791015625
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 15,
+          "lossTrain": 0.5771277546882629,
+          "lossTest": 0.47101661562919617,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.29450130462646484,
+              "trainMetric": 0.34571102261543274,
+              "testLoss": 0.237313374876976,
+              "testMetric": 0.3691490590572357
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.10370486229658127,
+              "trainMetric": 0.5009515285491943,
+              "testLoss": 0.09856273233890533,
+              "testMetric": 0.44824859499931335
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.06992354989051819,
+              "trainMetric": 0.9436894655227661,
+              "testLoss": 0.0531155951321125,
+              "testMetric": 0.9544340968132019
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.011260050348937511,
+              "trainMetric": 0.20806017518043518,
+              "testLoss": 0.010445134714245796,
+              "testMetric": 0.2000417709350586
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.06858092546463013,
+              "trainMetric": 14.739877700805664,
+              "testLoss": 0.07157974690198898,
+              "testMetric": 14.936685562133789
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 1.6586438417434692,
+        "meanClientDeltaNorm": 2.594371279080709,
+        "meanDistToMean": 2.2096707820892334,
+        "meanCosine": 0.021989927627146244,
+        "fracNegativeCosine": 0.6666666666666666
+      },
+      "deltaM": -0.3172786184728416
+    },
+    {
+      "round": 3,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 20,
+          "lossTrain": 0.5224329233169556,
+          "lossTest": 0.48951441049575806,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.15748098492622375,
+              "trainMetric": 0.5748819708824158,
+              "testLoss": 0.13828828930854797,
+              "testMetric": 0.6108570098876953
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.0835518166422844,
+              "trainMetric": 0.5946096181869507,
+              "testLoss": 0.08638109266757965,
+              "testMetric": 0.5826270580291748
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.1677212119102478,
+              "trainMetric": 0,
+              "testLoss": 0.17720620334148407,
+              "testMetric": 0
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.010860749520361423,
+              "trainMetric": 0.23011967539787292,
+              "testLoss": 0.010780795477330685,
+              "testMetric": 0.21947701275348663
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.07508048415184021,
+              "trainMetric": 15.95911979675293,
+              "testLoss": 0.07685801386833191,
+              "testMetric": 16.451650619506836
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 20,
+          "lossTrain": 0.48042571544647217,
+          "lossTest": 0.5213112235069275,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.1483895182609558,
+              "trainMetric": 0.6237567663192749,
+              "testLoss": 0.14708252251148224,
+              "testMetric": 0.6332261562347412
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.07271596044301987,
+              "trainMetric": 0.6858981251716614,
+              "testLoss": 0.08935488760471344,
+              "testMetric": 0.725051999092102
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.1481969654560089,
+              "trainMetric": 0,
+              "testLoss": 0.18430033326148987,
+              "testMetric": 0
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.010706073604524136,
+              "trainMetric": 0.22346241772174835,
+              "testLoss": 0.01299676951020956,
+              "testMetric": 0.22295823693275452
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.07279808819293976,
+              "trainMetric": 15.509761810302734,
+              "testLoss": 0.08757676184177399,
+              "testMetric": 18.855546951293945
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 20,
+          "lossTrain": 0.5079419612884521,
+          "lossTest": 0.41301536560058594,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.27426570653915405,
+              "trainMetric": 0.34924760460853577,
+              "testLoss": 0.21731220185756683,
+              "testMetric": 0.375080943107605
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.08208353817462921,
+              "trainMetric": 0.7197598218917847,
+              "testLoss": 0.07835184782743454,
+              "testMetric": 0.7511031031608582
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.05086425691843033,
+              "trainMetric": 0.9516091346740723,
+              "testLoss": 0.04597797989845276,
+              "testMetric": 0.9550952315330505
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.010167555883526802,
+              "trainMetric": 0.202754944562912,
+              "testLoss": 0.009198291227221489,
+              "testMetric": 0.1917799711227417
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.061184026300907135,
+              "trainMetric": 13.282970428466797,
+              "testLoss": 0.062175024300813675,
+              "testMetric": 13.904192924499512
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.8508097529411316,
+        "meanClientDeltaNorm": 1.4155584573745728,
+        "meanDistToMean": 1.154941201210022,
+        "meanCosine": 0.022747188806533813,
+        "fracNegativeCosine": 0.3333333333333333
+      },
+      "deltaM": -0.2727017872477305
+    },
+    {
+      "round": 4,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 25,
+          "lossTrain": 0.41167500615119934,
+          "lossTest": 0.3813643455505371,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.07652739435434341,
+              "trainMetric": 0.8329194188117981,
+              "testLoss": 0.06346403807401657,
+              "testMetric": 0.8589022755622864
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.07313505560159683,
+              "trainMetric": 0.6830938458442688,
+              "testLoss": 0.07440193742513657,
+              "testMetric": 0.7009775638580322
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.14852173626422882,
+              "trainMetric": 0,
+              "testLoss": 0.15663230419158936,
+              "testMetric": 0
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.008903381414711475,
+              "trainMetric": 0.19641445577144623,
+              "testLoss": 0.010255562141537666,
+              "testMetric": 0.21250246465206146
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.07461672276258469,
+              "trainMetric": 15.973215103149414,
+              "testLoss": 0.0766104981303215,
+              "testMetric": 16.458078384399414
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 25,
+          "lossTrain": 0.3519761264324188,
+          "lossTest": 0.3810875117778778,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.04541600123047829,
+              "trainMetric": 0.9154485464096069,
+              "testLoss": 0.05138218402862549,
+              "testMetric": 0.927605152130127
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.06398868560791016,
+              "trainMetric": 0.8815425038337708,
+              "testLoss": 0.07474825531244278,
+              "testMetric": 0.8864306807518005
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.13114836812019348,
+              "trainMetric": 0.9531646966934204,
+              "testLoss": 0.15935593843460083,
+              "testMetric": 0.958794891834259
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.010034842416644096,
+              "trainMetric": 0.23120808601379395,
+              "testLoss": 0.011507983319461346,
+              "testMetric": 0.21981246769428253
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.07131670415401459,
+              "trainMetric": 15.322458267211914,
+              "testLoss": 0.08409314602613449,
+              "testMetric": 18.45025634765625
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 25,
+          "lossTrain": 0.4596271812915802,
+          "lossTest": 0.3690981864929199,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.2604915499687195,
+              "trainMetric": 0.3502420485019684,
+              "testLoss": 0.20540104806423187,
+              "testMetric": 0.37399911880493164
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.06557078659534454,
+              "trainMetric": 0.9268437623977661,
+              "testLoss": 0.05867619439959526,
+              "testMetric": 0.9344664812088013
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.04769008606672287,
+              "trainMetric": 0.9534400701522827,
+              "testLoss": 0.04114200547337532,
+              "testMetric": 0.9595630764961243
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.010106918402016163,
+              "trainMetric": 0.20640115439891815,
+              "testLoss": 0.008944116532802582,
+              "testMetric": 0.19090497493743896
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.045029930770397186,
+              "trainMetric": 11.828729629516602,
+              "testLoss": 0.054934825748205185,
+              "testMetric": 13.05657958984375
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.616251528263092,
+        "meanClientDeltaNorm": 1.022204597791036,
+        "meanDistToMean": 0.8552406231562296,
+        "meanCosine": 0.003207028222580751,
+        "fracNegativeCosine": 0.6666666666666666
+      },
+      "deltaM": -0.15585118657824396
+    },
+    {
+      "round": 5,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 30,
+          "lossTrain": 0.3489038646221161,
+          "lossTest": 0.33139753341674805,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.03933950141072273,
+              "trainMetric": 0.9233447313308716,
+              "testLoss": 0.03814313933253288,
+              "testMetric": 0.9227790236473083
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.06510576605796814,
+              "trainMetric": 0.8490061163902283,
+              "testLoss": 0.06583935022354126,
+              "testMetric": 0.8846722841262817
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.1308254599571228,
+              "trainMetric": 0,
+              "testLoss": 0.1405320018529892,
+              "testMetric": 0
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.008122612722218037,
+              "trainMetric": 0.1848669797182083,
+              "testLoss": 0.009868868626654148,
+              "testMetric": 0.21468880772590637
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.07435914874076843,
+              "trainMetric": 15.913639068603516,
+              "testLoss": 0.07701417803764343,
+              "testMetric": 16.461084365844727
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 30,
+          "lossTrain": 0.31326308846473694,
+          "lossTest": 0.326469361782074,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.03833484649658203,
+              "trainMetric": 0.9193226099014282,
+              "testLoss": 0.03895455226302147,
+              "testMetric": 0.9417665600776672
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.057980943471193314,
+              "trainMetric": 0.9079270362854004,
+              "testLoss": 0.06694769114255905,
+              "testMetric": 0.9220356941223145
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.11587979644536972,
+              "trainMetric": 0.9558298587799072,
+              "testLoss": 0.1401197761297226,
+              "testMetric": 0.963912308216095
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.009939583949744701,
+              "trainMetric": 0.22981736063957214,
+              "testLoss": 0.010208599269390106,
+              "testMetric": 0.20537428557872772
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.06099105253815651,
+              "trainMetric": 14.537534713745117,
+              "testLoss": 0.07023876160383224,
+              "testMetric": 16.305023193359375
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 30,
+          "lossTrain": 0.3784007728099823,
+          "lossTest": 0.26531875133514404,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.18667356669902802,
+              "trainMetric": 0.49985015392303467,
+              "testLoss": 0.11380443722009659,
+              "testMetric": 0.694187343120575
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.06438767910003662,
+              "trainMetric": 0.9307254552841187,
+              "testLoss": 0.05899999290704727,
+              "testMetric": 0.9411279559135437
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.04712211340665817,
+              "trainMetric": 0.9537906646728516,
+              "testLoss": 0.03929467126727104,
+              "testMetric": 0.9617130160331726
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.010665022768080235,
+              "trainMetric": 0.21770235896110535,
+              "testLoss": 0.009446080774068832,
+              "testMetric": 0.1992977261543274
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.03904002904891968,
+              "trainMetric": 10.078752517700195,
+              "testLoss": 0.04377356171607971,
+              "testMetric": 10.374975204467773
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.40778595209121704,
+        "meanClientDeltaNorm": 0.6868580381075541,
+        "meanDistToMean": 0.5617373387018839,
+        "meanCosine": 0.015136956237256527,
+        "fracNegativeCosine": 0.3333333333333333
+      },
+      "deltaM": -0.12105194318484358
+    },
+    {
+      "round": 6,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 35,
+          "lossTrain": 0.33065319061279297,
+          "lossTest": 0.310043066740036,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.042164068669080734,
+              "trainMetric": 0.9210250377655029,
+              "testLoss": 0.03653458505868912,
+              "testMetric": 0.927912712097168
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.05838693305850029,
+              "trainMetric": 0.9188297390937805,
+              "testLoss": 0.0617297999560833,
+              "testMetric": 0.9486608505249023
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.1165757030248642,
+              "trainMetric": 0.9519635438919067,
+              "testLoss": 0.12423839420080185,
+              "testMetric": 0.9589158892631531
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.008446675725281239,
+              "trainMetric": 0.1929384022951126,
+              "testLoss": 0.010067818686366081,
+              "testMetric": 0.22189278900623322
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.07412473857402802,
+              "trainMetric": 15.938709259033203,
+              "testLoss": 0.07747246325016022,
+              "testMetric": 16.77312469482422
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 35,
+          "lossTrain": 0.28494349122047424,
+          "lossTest": 0.2940225601196289,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.034325238317251205,
+              "trainMetric": 0.9212436676025391,
+              "testLoss": 0.035574641078710556,
+              "testMetric": 0.9442375302314758
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.05131782218813896,
+              "trainMetric": 0.9379408955574036,
+              "testLoss": 0.057438887655735016,
+              "testMetric": 0.9734379053115845
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.10274755209684372,
+              "trainMetric": 0.9614520072937012,
+              "testLoss": 0.12382793426513672,
+              "testMetric": 0.9694740176200867
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.009850836358964443,
+              "trainMetric": 0.22542336583137512,
+              "testLoss": 0.010202357545495033,
+              "testMetric": 0.1997700184583664
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.05661289021372795,
+              "trainMetric": 13.08919906616211,
+              "testLoss": 0.06697874516248703,
+              "testMetric": 15.231158256530762
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 35,
+          "lossTrain": 0.24203801155090332,
+          "lossTest": 0.20299068093299866,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.055323075503110886,
+              "trainMetric": 0.9177302122116089,
+              "testLoss": 0.060268938541412354,
+              "testMetric": 0.8958479762077332
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.06337371468544006,
+              "trainMetric": 0.9358965158462524,
+              "testLoss": 0.0555080845952034,
+              "testMetric": 0.9403988122940063
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.04503361135721207,
+              "trainMetric": 0.9567573666572571,
+              "testLoss": 0.038715463131666183,
+              "testMetric": 0.9640310406684875
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.010431372560560703,
+              "trainMetric": 0.21320496499538422,
+              "testLoss": 0.008996820077300072,
+              "testMetric": 0.18814556300640106
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.03661423176527023,
+              "trainMetric": 9.105083465576172,
+              "testLoss": 0.0395013801753521,
+              "testMetric": 9.577765464782715
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.431972473859787,
+        "meanClientDeltaNorm": 0.6995652516682943,
+        "meanDistToMean": 0.5842335820198059,
+        "meanCosine": 0.019680528591076534,
+        "fracNegativeCosine": 0.3333333333333333
+      },
+      "deltaM": -0.046387632748890836
+    },
+    {
+      "round": 7,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 40,
+          "lossTrain": 0.2975490987300873,
+          "lossTest": 0.27804169058799744,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.03240517899394035,
+              "trainMetric": 0.9397225975990295,
+              "testLoss": 0.032239943742752075,
+              "testMetric": 0.9345192313194275
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.050846658647060394,
+              "trainMetric": 0.94379723072052,
+              "testLoss": 0.05212308093905449,
+              "testMetric": 0.957011878490448
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.10293804854154587,
+              "trainMetric": 0.9555329084396362,
+              "testLoss": 0.10978531837463379,
+              "testMetric": 0.9530689120292664
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.007609185762703419,
+              "trainMetric": 0.18662908673286438,
+              "testLoss": 0.008936531841754913,
+              "testMetric": 0.20222213864326477
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.07352856546640396,
+              "trainMetric": 15.894368171691895,
+              "testLoss": 0.07495679706335068,
+              "testMetric": 16.401906967163086
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 40,
+          "lossTrain": 0.27728480100631714,
+          "lossTest": 0.28469741344451904,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.035741813480854034,
+              "trainMetric": 0.9206196665763855,
+              "testLoss": 0.03511121869087219,
+              "testMetric": 0.9433225989341736
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.05424767732620239,
+              "trainMetric": 0.9221377372741699,
+              "testLoss": 0.05936768651008606,
+              "testMetric": 0.9756408929824829
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.0921468511223793,
+              "trainMetric": 0.9631049633026123,
+              "testLoss": 0.11149715632200241,
+              "testMetric": 0.97632896900177
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.010104660876095295,
+              "trainMetric": 0.22803866863250732,
+              "testLoss": 0.01107725314795971,
+              "testMetric": 0.20090380311012268
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.055389951914548874,
+              "trainMetric": 12.63870906829834,
+              "testLoss": 0.06764411181211472,
+              "testMetric": 14.98620319366455
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 40,
+          "lossTrain": 0.21883098781108856,
+          "lossTest": 0.17345933616161346,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.04360506683588028,
+              "trainMetric": 0.9276818037033081,
+              "testLoss": 0.037859171628952026,
+              "testMetric": 0.9313468933105469
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.05915628373622894,
+              "trainMetric": 0.9468591213226318,
+              "testLoss": 0.05330435559153557,
+              "testMetric": 0.9567861557006836
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.04145108163356781,
+              "trainMetric": 0.960847020149231,
+              "testLoss": 0.03682214021682739,
+              "testMetric": 0.9651418924331665
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.009773775935173035,
+              "trainMetric": 0.20563682913780212,
+              "testLoss": 0.008573487401008606,
+              "testMetric": 0.18481674790382385
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.03349152207374573,
+              "trainMetric": 8.654687881469727,
+              "testLoss": 0.03690018132328987,
+              "testMetric": 9.936197280883789
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.24731506407260895,
+        "meanClientDeltaNorm": 0.43419859806696576,
+        "meanDistToMean": 0.35864583651224774,
+        "meanCosine": -0.017291823402047157,
+        "fracNegativeCosine": 1
+      },
+      "deltaM": -0.04035578575409219
+    },
+    {
+      "round": 8,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 45,
+          "lossTrain": 0.2786793112754822,
+          "lossTest": 0.2615640163421631,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.029233267530798912,
+              "trainMetric": 0.943172812461853,
+              "testLoss": 0.030569229274988174,
+              "testMetric": 0.9353424310684204
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.047735970467329025,
+              "trainMetric": 0.949566662311554,
+              "testLoss": 0.04861348867416382,
+              "testMetric": 0.9557979702949524
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.09164328873157501,
+              "trainMetric": 0.9607470035552979,
+              "testLoss": 0.09829884022474289,
+              "testMetric": 0.9548994302749634
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.007540869060903788,
+              "trainMetric": 0.18543905019760132,
+              "testLoss": 0.009280492551624775,
+              "testMetric": 0.2120029777288437
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.07242516428232193,
+              "trainMetric": 15.836393356323242,
+              "testLoss": 0.0748019739985466,
+              "testMetric": 16.405664443969727
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 45,
+          "lossTrain": 0.25589001178741455,
+          "lossTest": 0.26059412956237793,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.0321911945939064,
+              "trainMetric": 0.924975574016571,
+              "testLoss": 0.033288463950157166,
+              "testMetric": 0.9458433389663696
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.04818827286362648,
+              "trainMetric": 0.9529889822006226,
+              "testLoss": 0.053516436368227005,
+              "testMetric": 0.9802428483963013
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.08300597965717316,
+              "trainMetric": 0.9668850898742676,
+              "testLoss": 0.09824238717556,
+              "testMetric": 0.9790598750114441
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.00956040620803833,
+              "trainMetric": 0.22097423672676086,
+              "testLoss": 0.0100806700065732,
+              "testMetric": 0.19561539590358734
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.054000623524188995,
+              "trainMetric": 12.486828804016113,
+              "testLoss": 0.06546620279550552,
+              "testMetric": 14.771748542785645
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 45,
+          "lossTrain": 0.20494261384010315,
+          "lossTest": 0.16030815243721008,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.039732374250888824,
+              "trainMetric": 0.9319660067558289,
+              "testLoss": 0.03371196612715721,
+              "testMetric": 0.9333363771438599
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.05551748722791672,
+              "trainMetric": 0.9500552415847778,
+              "testLoss": 0.04944255203008652,
+              "testMetric": 0.9641916155815125
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.03741183131933212,
+              "trainMetric": 0.964601993560791,
+              "testLoss": 0.032961439341306686,
+              "testMetric": 0.9678311347961426
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.0095234215259552,
+              "trainMetric": 0.20272532105445862,
+              "testLoss": 0.008503987453877926,
+              "testMetric": 0.184691920876503
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.03098248690366745,
+              "trainMetric": 8.413506507873535,
+              "testLoss": 0.035688210278749466,
+              "testMetric": 9.347355842590332
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.2399166226387024,
+        "meanClientDeltaNorm": 0.402614285548528,
+        "meanDistToMean": 0.3313404818375905,
+        "meanCosine": 0.011989506194368005,
+        "fracNegativeCosine": 0.3333333333333333
+      },
+      "deltaM": -0.04426733658723702
+    },
+    {
+      "round": 9,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 50,
+          "lossTrain": 0.2651257812976837,
+          "lossTest": 0.2479589432477951,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.027712779119610786,
+              "trainMetric": 0.9468918442726135,
+              "testLoss": 0.02989364229142666,
+              "testMetric": 0.9368628859519958
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.04612709581851959,
+              "trainMetric": 0.9546449184417725,
+              "testLoss": 0.046989139169454575,
+              "testMetric": 0.9608020782470703
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.08207496255636215,
+              "trainMetric": 0.964086651802063,
+              "testLoss": 0.08818003535270691,
+              "testMetric": 0.9613486528396606
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.007364312652498484,
+              "trainMetric": 0.18651455640792847,
+              "testLoss": 0.008799719624221325,
+              "testMetric": 0.20667169988155365
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.07193763554096222,
+              "trainMetric": 15.80248737335205,
+              "testLoss": 0.0740964263677597,
+              "testMetric": 16.35388946533203
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 50,
+          "lossTrain": 0.24568350613117218,
+          "lossTest": 0.2532307803630829,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.03163796663284302,
+              "trainMetric": 0.9263238906860352,
+              "testLoss": 0.03379477187991142,
+              "testMetric": 0.9406952857971191
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.04749160632491112,
+              "trainMetric": 0.9556851983070374,
+              "testLoss": 0.05681341886520386,
+              "testMetric": 0.9593507647514343
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.07538715749979019,
+              "trainMetric": 0.9683736562728882,
+              "testLoss": 0.08820738643407822,
+              "testMetric": 0.977743923664093
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.009490301832556725,
+              "trainMetric": 0.2190186083316803,
+              "testLoss": 0.010140630416572094,
+              "testMetric": 0.1984570026397705
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.0528777651488781,
+              "trainMetric": 12.327635765075684,
+              "testLoss": 0.06427457183599472,
+              "testMetric": 14.497919082641602
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 50,
+          "lossTrain": 0.20042069256305695,
+          "lossTest": 0.15129613876342773,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.03949984163045883,
+              "trainMetric": 0.931835949420929,
+              "testLoss": 0.033130016177892685,
+              "testMetric": 0.9311933517456055
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.05572004243731499,
+              "trainMetric": 0.9543242454528809,
+              "testLoss": 0.048108674585819244,
+              "testMetric": 0.9702045321464539
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.03373914957046509,
+              "trainMetric": 0.9680902361869812,
+              "testLoss": 0.028407026082277298,
+              "testMetric": 0.9726484417915344
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.009363651275634766,
+              "trainMetric": 0.20080164074897766,
+              "testLoss": 0.008481473661959171,
+              "testMetric": 0.18702827394008636
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.029615186154842377,
+              "trainMetric": 8.003751754760742,
+              "testLoss": 0.033168941736221313,
+              "testMetric": 8.739283561706543
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.23443928360939026,
+        "meanClientDeltaNorm": 0.39020182689030963,
+        "meanDistToMean": 0.31751007835070294,
+        "meanCosine": 0.02792083235302319,
+        "fracNegativeCosine": 0.3333333333333333
+      },
+      "deltaM": -0.06106317625507586
+    },
+    {
+      "round": 10,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 55,
+          "lossTrain": 0.25411269068717957,
+          "lossTest": 0.23719583451747894,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.02661248855292797,
+              "trainMetric": 0.9491289854049683,
+              "testLoss": 0.029468266293406487,
+              "testMetric": 0.9374178051948547
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.045047156512737274,
+              "trainMetric": 0.9560672044754028,
+              "testLoss": 0.04560086131095886,
+              "testMetric": 0.9636781811714172
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.07390330731868744,
+              "trainMetric": 0.9663928747177124,
+              "testLoss": 0.07969044893980026,
+              "testMetric": 0.9632911682128906
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.007337687537074089,
+              "trainMetric": 0.18792329728603363,
+              "testLoss": 0.008696704171597958,
+              "testMetric": 0.2070315182209015
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.07161875814199448,
+              "trainMetric": 15.780908584594727,
+              "testLoss": 0.07373952865600586,
+              "testMetric": 16.32729148864746
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 55,
+          "lossTrain": 0.23474732041358948,
+          "lossTest": 0.2395569533109665,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.030097516253590584,
+              "trainMetric": 0.9287792444229126,
+              "testLoss": 0.0322238951921463,
+              "testMetric": 0.9475294351577759
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.04754636809229851,
+              "trainMetric": 0.9562451243400574,
+              "testLoss": 0.05574562028050423,
+              "testMetric": 0.9562593698501587
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.06814556568861008,
+              "trainMetric": 0.9713313579559326,
+              "testLoss": 0.079252690076828,
+              "testMetric": 0.982505738735199
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.00934402272105217,
+              "trainMetric": 0.217775359749794,
+              "testLoss": 0.009747150354087353,
+              "testMetric": 0.19329412281513214
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.05120982974767685,
+              "trainMetric": 12.120347023010254,
+              "testLoss": 0.06258761137723923,
+              "testMetric": 14.214423179626465
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 55,
+          "lossTrain": 0.18978068232536316,
+          "lossTest": 0.14467182755470276,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.03748047351837158,
+              "trainMetric": 0.9367945790290833,
+              "testLoss": 0.03307647630572319,
+              "testMetric": 0.9381467700004578
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.052346568554639816,
+              "trainMetric": 0.960031270980835,
+              "testLoss": 0.046357911080121994,
+              "testMetric": 0.9758943915367126
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.02847936935722828,
+              "trainMetric": 0.9728620648384094,
+              "testLoss": 0.024293584749102592,
+              "testMetric": 0.9784849286079407
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.009029868058860302,
+              "trainMetric": 0.19812680780887604,
+              "testLoss": 0.007886501960456371,
+              "testMetric": 0.1750793755054474
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.02902841567993164,
+              "trainMetric": 8.155379295349121,
+              "testLoss": 0.03305735066533089,
+              "testMetric": 9.59744930267334
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.255634069442749,
+        "meanClientDeltaNorm": 0.4262351195017497,
+        "meanDistToMean": 0.3518003424008687,
+        "meanCosine": 0.01912060217000544,
+        "fracNegativeCosine": 0.3333333333333333
+      },
+      "deltaM": -0.04763725010604209
+    },
+    {
+      "round": 11,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 60,
+          "lossTrain": 0.24258145689964294,
+          "lossTest": 0.22545106709003448,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.02509283274412155,
+              "trainMetric": 0.9531291127204895,
+              "testLoss": 0.027724817395210266,
+              "testMetric": 0.9412775039672852
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.043548110872507095,
+              "trainMetric": 0.9573189616203308,
+              "testLoss": 0.044668711721897125,
+              "testMetric": 0.9655559659004211
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.06619733572006226,
+              "trainMetric": 0.9703230857849121,
+              "testLoss": 0.07111429423093796,
+              "testMetric": 0.9708661437034607
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.007210686802864075,
+              "trainMetric": 0.18805889785289764,
+              "testLoss": 0.008495450951159,
+              "testMetric": 0.2059786319732666
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.07112111151218414,
+              "trainMetric": 15.732025146484375,
+              "testLoss": 0.0734478011727333,
+              "testMetric": 16.31856918334961
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 60,
+          "lossTrain": 0.22776418924331665,
+          "lossTest": 0.237331822514534,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.029877642169594765,
+              "trainMetric": 0.9334633350372314,
+              "testLoss": 0.030308309942483902,
+              "testMetric": 0.946944534778595
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.04784761741757393,
+              "trainMetric": 0.956257700920105,
+              "testLoss": 0.06414802372455597,
+              "testMetric": 0.9411217570304871
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.0616365522146225,
+              "trainMetric": 0.9732941389083862,
+              "testLoss": 0.07151816040277481,
+              "testMetric": 0.9827287793159485
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.009330637753009796,
+              "trainMetric": 0.218037411570549,
+              "testLoss": 0.009753543883562088,
+              "testMetric": 0.19452984631061554
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.0506228543817997,
+              "trainMetric": 12.179547309875488,
+              "testLoss": 0.06160378456115723,
+              "testMetric": 14.240633964538574
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 60,
+          "lossTrain": 0.17469291388988495,
+          "lossTest": 0.12802641093730927,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.03415412828326225,
+              "trainMetric": 0.9407894015312195,
+              "testLoss": 0.029112786054611206,
+              "testMetric": 0.9401534199714661
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.04778510704636574,
+              "trainMetric": 0.9615355730056763,
+              "testLoss": 0.04251539707183838,
+              "testMetric": 0.9736650586128235
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.022708673030138016,
+              "trainMetric": 0.9776756167411804,
+              "testLoss": 0.016887877136468887,
+              "testMetric": 0.9864023327827454
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.008717230521142483,
+              "trainMetric": 0.19347937405109406,
+              "testLoss": 0.007774151861667633,
+              "testMetric": 0.17728562653064728
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.027082305401563644,
+              "trainMetric": 7.652482032775879,
+              "testLoss": 0.03173619881272316,
+              "testMetric": 9.1246976852417
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.26647359132766724,
+        "meanClientDeltaNorm": 0.4375990430514018,
+        "meanDistToMean": 0.36881829301516217,
+        "meanCosine": 0.010947543972482284,
+        "fracNegativeCosine": 0.3333333333333333
+      },
+      "deltaM": -0.06078295062247493
+    },
+    {
+      "round": 12,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 65,
+          "lossTrain": 0.23156768083572388,
+          "lossTest": 0.21114292740821838,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.023250499740242958,
+              "trainMetric": 0.9576501846313477,
+              "testLoss": 0.024315834045410156,
+              "testMetric": 0.9486034512519836
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.04224782809615135,
+              "trainMetric": 0.9571348428726196,
+              "testLoss": 0.04309353977441788,
+              "testMetric": 0.964989185333252
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.05858514830470085,
+              "trainMetric": 0.9752213954925537,
+              "testLoss": 0.06276869028806686,
+              "testMetric": 0.975784420967102
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.007081089541316032,
+              "trainMetric": 0.18829312920570374,
+              "testLoss": 0.008078263141214848,
+              "testMetric": 0.19958831369876862
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.0709395557641983,
+              "trainMetric": 15.729159355163574,
+              "testLoss": 0.07288660854101181,
+              "testMetric": 16.28077507019043
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 65,
+          "lossTrain": 0.2156180888414383,
+          "lossTest": 0.21065588295459747,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.030657650902867317,
+              "trainMetric": 0.9314332604408264,
+              "testLoss": 0.03206421062350273,
+              "testMetric": 0.9475107192993164
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.046377796679735184,
+              "trainMetric": 0.9540502429008484,
+              "testLoss": 0.05046413093805313,
+              "testMetric": 0.9872029423713684
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.052886880934238434,
+              "trainMetric": 0.9812242984771729,
+              "testLoss": 0.0625719353556633,
+              "testMetric": 0.9866714477539062
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.009044338949024677,
+              "trainMetric": 0.2148246169090271,
+              "testLoss": 0.00947444699704647,
+              "testMetric": 0.19106237590312958
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.04771510139107704,
+              "trainMetric": 11.957947731018066,
+              "testLoss": 0.05608116462826729,
+              "testMetric": 13.765703201293945
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 65,
+          "lossTrain": 0.16298536956310272,
+          "lossTest": 0.11828763782978058,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.030395543202757835,
+              "trainMetric": 0.946178138256073,
+              "testLoss": 0.026219641789793968,
+              "testMetric": 0.9401904344558716
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.0463080070912838,
+              "trainMetric": 0.9615899324417114,
+              "testLoss": 0.04097536578774452,
+              "testMetric": 0.9745244383811951
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.017151251435279846,
+              "trainMetric": 0.9832590222358704,
+              "testLoss": 0.012634406797587872,
+              "testMetric": 0.9911954998970032
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.008613086305558681,
+              "trainMetric": 0.19335000216960907,
+              "testLoss": 0.007753215730190277,
+              "testMetric": 0.18041113018989563
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.026019612327218056,
+              "trainMetric": 7.4744367599487305,
+              "testLoss": 0.030705008655786514,
+              "testMetric": 8.517117500305176
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.2929033041000366,
+        "meanClientDeltaNorm": 0.4695156216621399,
+        "meanDistToMean": 0.40830270449320477,
+        "meanCosine": -0.0005133325854937235,
+        "fracNegativeCosine": 0.6666666666666666
+      },
+      "deltaM": -0.06387692781201594
+    },
+    {
+      "round": 13,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 70,
+          "lossTrain": 0.22151197493076324,
+          "lossTest": 0.20105257630348206,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.022956524044275284,
+              "trainMetric": 0.9580023884773254,
+              "testLoss": 0.023724323138594627,
+              "testMetric": 0.9528171420097351
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.04144950956106186,
+              "trainMetric": 0.956444501876831,
+              "testLoss": 0.04259071499109268,
+              "testMetric": 0.9615611433982849
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.050136223435401917,
+              "trainMetric": 0.9833225011825562,
+              "testLoss": 0.05387819930911064,
+              "testMetric": 0.9841482043266296
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.006835993379354477,
+              "trainMetric": 0.18587061762809753,
+              "testLoss": 0.008039536885917187,
+              "testMetric": 0.20216873288154602
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.07037483900785446,
+              "trainMetric": 15.678466796875,
+              "testLoss": 0.072819784283638,
+              "testMetric": 16.3002872467041
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 70,
+          "lossTrain": 0.19457103312015533,
+          "lossTest": 0.18976686894893646,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.026024265214800835,
+              "trainMetric": 0.940991222858429,
+              "testLoss": 0.028070686385035515,
+              "testMetric": 0.9517627954483032
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.044097598642110825,
+              "trainMetric": 0.962082028388977,
+              "testLoss": 0.04951437562704086,
+              "testMetric": 0.9874645471572876
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.04321746155619621,
+              "trainMetric": 0.9907263517379761,
+              "testLoss": 0.05284365639090538,
+              "testMetric": 0.9916478395462036
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.00882246345281601,
+              "trainMetric": 0.2121438831090927,
+              "testLoss": 0.009327604435384274,
+              "testMetric": 0.18975256383419037
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.042414601892232895,
+              "trainMetric": 11.378400802612305,
+              "testLoss": 0.0500105619430542,
+              "testMetric": 13.017352104187012
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 70,
+          "lossTrain": 0.14771363139152527,
+          "lossTest": 0.10640884935855865,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.023955754935741425,
+              "trainMetric": 0.9581195116043091,
+              "testLoss": 0.019536711275577545,
+              "testMetric": 0.965050220489502
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.04417566955089569,
+              "trainMetric": 0.9620113968849182,
+              "testLoss": 0.0405459962785244,
+              "testMetric": 0.9743626713752747
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.010973367840051651,
+              "trainMetric": 0.989838719367981,
+              "testLoss": 0.009440167807042599,
+              "testMetric": 0.9935839772224426
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.008078343234956264,
+              "trainMetric": 0.1916659027338028,
+              "testLoss": 0.006909196265041828,
+              "testMetric": 0.1716752052307129
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.025426261126995087,
+              "trainMetric": 7.339560508728027,
+              "testLoss": 0.029976779595017433,
+              "testMetric": 8.184378623962402
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.30113348364830017,
+        "meanClientDeltaNorm": 0.4848926564057668,
+        "meanDistToMean": 0.4184681177139282,
+        "meanCosine": 0.010628072544932365,
+        "fracNegativeCosine": 0.6666666666666666
+      },
+      "deltaM": -0.07250909460832411
+    },
+    {
+      "round": 14,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 75,
+          "lossTrain": 0.21032065153121948,
+          "lossTest": 0.19235573709011078,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.020789606496691704,
+              "trainMetric": 0.9620306491851807,
+              "testLoss": 0.024447858333587646,
+              "testMetric": 0.9478927850723267
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.04035627096891403,
+              "trainMetric": 0.9556885361671448,
+              "testLoss": 0.04146971181035042,
+              "testMetric": 0.9632267951965332
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.04228617995977402,
+              "trainMetric": 0.9895364046096802,
+              "testLoss": 0.04660158231854439,
+              "testMetric": 0.9864083528518677
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.006792199797928333,
+              "trainMetric": 0.18811441957950592,
+              "testLoss": 0.00799556914716959,
+              "testMetric": 0.20390169322490692
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.06989113986492157,
+              "trainMetric": 15.695247650146484,
+              "testLoss": 0.0718410387635231,
+              "testMetric": 16.181140899658203
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 75,
+          "lossTrain": 0.1849965900182724,
+          "lossTest": 0.17740820348262787,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.023806946352124214,
+              "trainMetric": 0.9497512578964233,
+              "testLoss": 0.02319950796663761,
+              "testMetric": 0.957697331905365
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.043651990592479706,
+              "trainMetric": 0.962604820728302,
+              "testLoss": 0.050437379628419876,
+              "testMetric": 0.9898548126220703
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.03810238465666771,
+              "trainMetric": 0.9916830658912659,
+              "testLoss": 0.046896375715732574,
+              "testMetric": 0.9923763275146484
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.00859557744115591,
+              "trainMetric": 0.20975549519062042,
+              "testLoss": 0.008832727558910847,
+              "testMetric": 0.18384699523448944
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.04051343724131584,
+              "trainMetric": 11.10312271118164,
+              "testLoss": 0.048042215406894684,
+              "testMetric": 12.373862266540527
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 75,
+          "lossTrain": 0.13188153505325317,
+          "lossTest": 0.09303957223892212,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.013664309866726398,
+              "trainMetric": 0.9751151204109192,
+              "testLoss": 0.010062259621918201,
+              "testMetric": 0.9830521941184998
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.04343364015221596,
+              "trainMetric": 0.9621851444244385,
+              "testLoss": 0.03936998173594475,
+              "testMetric": 0.9757232666015625
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.006122239399701357,
+              "trainMetric": 0.994927704334259,
+              "testLoss": 0.006345768924802542,
+              "testMetric": 0.9958669543266296
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.007523811422288418,
+              "trainMetric": 0.18881946802139282,
+              "testLoss": 0.007170150522142649,
+              "testMetric": 0.180472269654274
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.02498016320168972,
+              "trainMetric": 7.221754550933838,
+              "testLoss": 0.030091408640146255,
+              "testMetric": 8.426676750183105
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.2972274720668793,
+        "meanClientDeltaNorm": 0.4931263526280721,
+        "meanDistToMean": 0.41801293690999347,
+        "meanCosine": 0.0003314800560474396,
+        "fracNegativeCosine": 0.6666666666666666
+      },
+      "deltaM": -0.06591985962813637
+    },
+    {
+      "round": 15,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 80,
+          "lossTrain": 0.20050933957099915,
+          "lossTest": 0.17971080541610718,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.018808923661708832,
+              "trainMetric": 0.9656758904457092,
+              "testLoss": 0.02009502425789833,
+              "testMetric": 0.9567384123802185
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03920792043209076,
+              "trainMetric": 0.9565989375114441,
+              "testLoss": 0.04035694897174835,
+              "testMetric": 0.963444709777832
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.03681838512420654,
+              "trainMetric": 0.9928762316703796,
+              "testLoss": 0.0406501404941082,
+              "testMetric": 0.9909301996231079
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.006509043741971254,
+              "trainMetric": 0.18512386083602905,
+              "testLoss": 0.0074331872165203094,
+              "testMetric": 0.19507889449596405
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.06881213188171387,
+              "trainMetric": 15.5711030960083,
+              "testLoss": 0.07117550820112228,
+              "testMetric": 16.169260025024414
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 80,
+          "lossTrain": 0.17255239188671112,
+          "lossTest": 0.16537737846374512,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.01995132863521576,
+              "trainMetric": 0.955904483795166,
+              "testLoss": 0.021655624732375145,
+              "testMetric": 0.957851231098175
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.04341371729969978,
+              "trainMetric": 0.9637147784233093,
+              "testLoss": 0.047868985682725906,
+              "testMetric": 0.9873790144920349
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.03354837745428085,
+              "trainMetric": 0.9937818646430969,
+              "testLoss": 0.043442003428936005,
+              "testMetric": 0.9915632605552673
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.008088608272373676,
+              "trainMetric": 0.20426078140735626,
+              "testLoss": 0.008971692994236946,
+              "testMetric": 0.19018511474132538
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.03696677088737488,
+              "trainMetric": 10.747979164123535,
+              "testLoss": 0.043439071625471115,
+              "testMetric": 11.900833129882812
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 80,
+          "lossTrain": 0.123295858502388,
+          "lossTest": 0.08511650562286377,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.006154941860586405,
+              "trainMetric": 0.9897535443305969,
+              "testLoss": 0.004918569233268499,
+              "testMetric": 0.9930689930915833
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.04289238154888153,
+              "trainMetric": 0.9620054364204407,
+              "testLoss": 0.039034195244312286,
+              "testMetric": 0.974800705909729
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.005288884975016117,
+              "trainMetric": 0.9958857297897339,
+              "testLoss": 0.005228983238339424,
+              "testMetric": 0.9961047172546387
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.007588754408061504,
+              "trainMetric": 0.19158504903316498,
+              "testLoss": 0.005848230794072151,
+              "testMetric": 0.15983019769191742
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.0249258354306221,
+              "trainMetric": 7.547111988067627,
+              "testLoss": 0.030086535960435867,
+              "testMetric": 8.332186698913574
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.25276416540145874,
+        "meanClientDeltaNorm": 0.42978140711784363,
+        "meanDistToMean": 0.3561534484227498,
+        "meanCosine": 0.0032939761877059937,
+        "fracNegativeCosine": 0.6666666666666666
+      },
+      "deltaM": -0.06458606488603771
+    },
+    {
+      "round": 16,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 85,
+          "lossTrain": 0.19328969717025757,
+          "lossTest": 0.17378464341163635,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.017184322699904442,
+              "trainMetric": 0.9694028496742249,
+              "testLoss": 0.018895436078310013,
+              "testMetric": 0.9599817395210266
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03859785199165344,
+              "trainMetric": 0.9582778215408325,
+              "testLoss": 0.03963976725935936,
+              "testMetric": 0.963969349861145
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.032499924302101135,
+              "trainMetric": 0.9950538277626038,
+              "testLoss": 0.03699235990643501,
+              "testMetric": 0.9905511140823364
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.006460701581090689,
+              "trainMetric": 0.18584421277046204,
+              "testLoss": 0.007491698954254389,
+              "testMetric": 0.19842660427093506
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.06821154803037643,
+              "trainMetric": 15.53078842163086,
+              "testLoss": 0.07076537609100342,
+              "testMetric": 16.11472511291504
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 85,
+          "lossTrain": 0.16211362183094025,
+          "lossTest": 0.1500263512134552,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.017218295484781265,
+              "trainMetric": 0.9597880244255066,
+              "testLoss": 0.01627921126782894,
+              "testMetric": 0.9699066281318665
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.04335097223520279,
+              "trainMetric": 0.9655095934867859,
+              "testLoss": 0.047855984419584274,
+              "testMetric": 0.9878509640693665
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.03030439279973507,
+              "trainMetric": 0.9948798418045044,
+              "testLoss": 0.037330109626054764,
+              "testMetric": 0.9951022267341614
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.007769656367599964,
+              "trainMetric": 0.19980593025684357,
+              "testLoss": 0.008552989922463894,
+              "testMetric": 0.18555215001106262
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.033161651343107224,
+              "trainMetric": 9.739874839782715,
+              "testLoss": 0.040008049458265305,
+              "testMetric": 10.971643447875977
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 85,
+          "lossTrain": 0.11447468400001526,
+          "lossTest": 0.07912910729646683,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.0038267362397164106,
+              "trainMetric": 0.9938485622406006,
+              "testLoss": 0.003889861050993204,
+              "testMetric": 0.9947614669799805
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.04093743488192558,
+              "trainMetric": 0.9627170562744141,
+              "testLoss": 0.03699782118201256,
+              "testMetric": 0.9763906598091125
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.0030200104229152203,
+              "trainMetric": 0.9974768757820129,
+              "testLoss": 0.0032776878215372562,
+              "testMetric": 0.9974793791770935
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.006659114267677069,
+              "trainMetric": 0.1816447675228119,
+              "testLoss": 0.005624410230666399,
+              "testMetric": 0.15737995505332947
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.024212485179305077,
+              "trainMetric": 7.3654069900512695,
+              "testLoss": 0.029339326545596123,
+              "testMetric": 8.67145824432373
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.22286486625671387,
+        "meanClientDeltaNorm": 0.3799680968125661,
+        "meanDistToMean": 0.31292620301246643,
+        "meanCosine": 0.004972369720538457,
+        "fracNegativeCosine": 0.6666666666666666
+      },
+      "deltaM": -0.07775050544347148
+    },
+    {
+      "round": 17,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 90,
+          "lossTrain": 0.18567414581775665,
+          "lossTest": 0.1647043377161026,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.015254500322043896,
+              "trainMetric": 0.9724474549293518,
+              "testLoss": 0.016856586560606956,
+              "testMetric": 0.9652994275093079
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03774835541844368,
+              "trainMetric": 0.9583298563957214,
+              "testLoss": 0.03876952454447746,
+              "testMetric": 0.9660436511039734
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.028954045847058296,
+              "trainMetric": 0.9964078068733215,
+              "testLoss": 0.032208580523729324,
+              "testMetric": 0.9952788352966309
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.006190814543515444,
+              "trainMetric": 0.18313151597976685,
+              "testLoss": 0.007201548665761948,
+              "testMetric": 0.19496594369411469
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.06719325482845306,
+              "trainMetric": 15.425814628601074,
+              "testLoss": 0.06966810673475266,
+              "testMetric": 15.990918159484863
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 90,
+          "lossTrain": 0.15361839532852173,
+          "lossTest": 0.1441119909286499,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.014066390693187714,
+              "trainMetric": 0.9679275751113892,
+              "testLoss": 0.01284715998917818,
+              "testMetric": 0.9792301058769226
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.04290144518017769,
+              "trainMetric": 0.9664683938026428,
+              "testLoss": 0.04960130155086517,
+              "testMetric": 0.989360511302948
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.026768440380692482,
+              "trainMetric": 0.9964480400085449,
+              "testLoss": 0.033547352999448776,
+              "testMetric": 0.9956655502319336
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.0075516365468502045,
+              "trainMetric": 0.19854237139225006,
+              "testLoss": 0.008805925957858562,
+              "testMetric": 0.1921580284833908
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.032121509313583374,
+              "trainMetric": 9.36871337890625,
+              "testLoss": 0.039310257881879807,
+              "testMetric": 10.746810913085938
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 90,
+          "lossTrain": 0.11090932786464691,
+          "lossTest": 0.07607909291982651,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.002994597190991044,
+              "trainMetric": 0.9953325986862183,
+              "testLoss": 0.003105099080130458,
+              "testMetric": 0.9960501790046692
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.0401216596364975,
+              "trainMetric": 0.9615709781646729,
+              "testLoss": 0.03597011789679527,
+              "testMetric": 0.9760367274284363
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.0024659698829054832,
+              "trainMetric": 0.9981313943862915,
+              "testLoss": 0.002616929356008768,
+              "testMetric": 0.9977753758430481
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.006575270555913448,
+              "trainMetric": 0.18057671189308167,
+              "testLoss": 0.005539235658943653,
+              "testMetric": 0.15741927921772003
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.023647962138056755,
+              "trainMetric": 7.091104507446289,
+              "testLoss": 0.02884770929813385,
+              "testMetric": 8.277718544006348
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.18567600846290588,
+        "meanClientDeltaNorm": 0.3249569038550059,
+        "meanDistToMean": 0.26861195266246796,
+        "meanCosine": -0.016022021882236004,
+        "fracNegativeCosine": 1
+      },
+      "deltaM": -0.06276364167766066
+    },
+    {
+      "round": 18,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 95,
+          "lossTrain": 0.1804458051919937,
+          "lossTest": 0.15968216955661774,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.013868482783436775,
+              "trainMetric": 0.9747816324234009,
+              "testLoss": 0.01499031949788332,
+              "testMetric": 0.9663877487182617
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.037254802882671356,
+              "trainMetric": 0.9589451551437378,
+              "testLoss": 0.038489118218421936,
+              "testMetric": 0.9677654504776001
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.02616174891591072,
+              "trainMetric": 0.9971715211868286,
+              "testLoss": 0.029675904661417007,
+              "testMetric": 0.9948800206184387
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.006084898021072149,
+              "trainMetric": 0.1825677454471588,
+              "testLoss": 0.007037232164293528,
+              "testMetric": 0.19317017495632172
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.06677350401878357,
+              "trainMetric": 15.367398262023926,
+              "testLoss": 0.06948959082365036,
+              "testMetric": 15.963604927062988
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 95,
+          "lossTrain": 0.14692838490009308,
+          "lossTest": 0.1367492526769638,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.012103727087378502,
+              "trainMetric": 0.9710862040519714,
+              "testLoss": 0.014988101087510586,
+              "testMetric": 0.9787966012954712
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.041977766901254654,
+              "trainMetric": 0.9668627977371216,
+              "testLoss": 0.04600050672888756,
+              "testMetric": 0.9895901679992676
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.024091197177767754,
+              "trainMetric": 0.9973214268684387,
+              "testLoss": 0.029686396941542625,
+              "testMetric": 0.9983440637588501
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.0074289580807089806,
+              "trainMetric": 0.19762523472309113,
+              "testLoss": 0.008314159698784351,
+              "testMetric": 0.18537591397762299
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.031222127377986908,
+              "trainMetric": 9.248872756958008,
+              "testLoss": 0.037760090082883835,
+              "testMetric": 10.481622695922852
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 95,
+          "lossTrain": 0.10835504531860352,
+          "lossTest": 0.07396706193685532,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.002596525242552161,
+              "trainMetric": 0.9961382150650024,
+              "testLoss": 0.002671174705028534,
+              "testMetric": 0.9963546991348267
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03939732536673546,
+              "trainMetric": 0.9610338807106018,
+              "testLoss": 0.0351652093231678,
+              "testMetric": 0.9766615033149719
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.0021591787226498127,
+              "trainMetric": 0.9982321262359619,
+              "testLoss": 0.0022426953073590994,
+              "testMetric": 0.998170018196106
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.006494972389191389,
+              "trainMetric": 0.1795634627342224,
+              "testLoss": 0.0052951122634112835,
+              "testMetric": 0.15332381427288055
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.023312825709581375,
+              "trainMetric": 7.054692268371582,
+              "testLoss": 0.028592867776751518,
+              "testMetric": 8.121871948242188
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.16875922679901123,
+        "meanClientDeltaNorm": 0.2981696327527364,
+        "meanDistToMean": 0.24790854255358377,
+        "meanCosine": -0.025911700446158648,
+        "fracNegativeCosine": 0.6666666666666666
+      },
+      "deltaM": -0.07236868046792906
+    },
+    {
+      "round": 19,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 100,
+          "lossTrain": 0.1746961772441864,
+          "lossTest": 0.15280655026435852,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.010869110003113747,
+              "trainMetric": 0.9817541241645813,
+              "testLoss": 0.01252137590199709,
+              "testMetric": 0.9742185473442078
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03668762370944023,
+              "trainMetric": 0.9590321183204651,
+              "testLoss": 0.03775719553232193,
+              "testMetric": 0.9690613746643066
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.02432463876903057,
+              "trainMetric": 0.9963558912277222,
+              "testLoss": 0.02617037296295166,
+              "testMetric": 0.99687260389328
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.0058188531547784805,
+              "trainMetric": 0.17947660386562347,
+              "testLoss": 0.006897076964378357,
+              "testMetric": 0.19156889617443085
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.06660031527280807,
+              "trainMetric": 15.351987838745117,
+              "testLoss": 0.06946053355932236,
+              "testMetric": 16.04640007019043
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 100,
+          "lossTrain": 0.1419616937637329,
+          "lossTest": 0.1281716376543045,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.010676260106265545,
+              "trainMetric": 0.9757661819458008,
+              "testLoss": 0.011145466938614845,
+              "testMetric": 0.9812635779380798
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.04186486080288887,
+              "trainMetric": 0.9671502113342285,
+              "testLoss": 0.04543301463127136,
+              "testMetric": 0.9878660440444946
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.02222362719476223,
+              "trainMetric": 0.9972413778305054,
+              "testLoss": 0.027529070153832436,
+              "testMetric": 0.9975605010986328
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.007311956491321325,
+              "trainMetric": 0.19607266783714294,
+              "testLoss": 0.008540801703929901,
+              "testMetric": 0.18859031796455383
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.030027292668819427,
+              "trainMetric": 8.657153129577637,
+              "testLoss": 0.03552328422665596,
+              "testMetric": 9.836543083190918
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 100,
+          "lossTrain": 0.10603518038988113,
+          "lossTest": 0.07233472913503647,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.0023159340489655733,
+              "trainMetric": 0.9966692924499512,
+              "testLoss": 0.0023827047552913427,
+              "testMetric": 0.9965267181396484
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.038727521896362305,
+              "trainMetric": 0.9607703685760498,
+              "testLoss": 0.03461648151278496,
+              "testMetric": 0.9748956561088562
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.001907535013742745,
+              "trainMetric": 0.9984731674194336,
+              "testLoss": 0.0019670785404741764,
+              "testMetric": 0.998478889465332
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.006457819603383541,
+              "trainMetric": 0.17915327847003937,
+              "testLoss": 0.005186052527278662,
+              "testMetric": 0.1517380028963089
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.02290182001888752,
+              "trainMetric": 6.955688953399658,
+              "testLoss": 0.028182415291666985,
+              "testMetric": 8.092734336853027
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.1611381322145462,
+        "meanClientDeltaNorm": 0.2817225356896718,
+        "meanDistToMean": 0.23563262820243835,
+        "meanCosine": -0.02423825833830051,
+        "fracNegativeCosine": 1
+      },
+      "deltaM": -0.06913742664830849
+    },
+    {
+      "round": 20,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 105,
+          "lossTrain": 0.1689756214618683,
+          "lossTest": 0.14877131581306458,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.008389554917812347,
+              "trainMetric": 0.9859609603881836,
+              "testLoss": 0.011135815642774105,
+              "testMetric": 0.9826390147209167
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.036072541028261185,
+              "trainMetric": 0.9591715335845947,
+              "testLoss": 0.03687265142798424,
+              "testMetric": 0.9688405990600586
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.021420786157250404,
+              "trainMetric": 0.9976845383644104,
+              "testLoss": 0.02449415810406208,
+              "testMetric": 0.996261715888977
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.005943016614764929,
+              "trainMetric": 0.18270531296730042,
+              "testLoss": 0.006701707374304533,
+              "testMetric": 0.18681153655052185
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.06667797267436981,
+              "trainMetric": 15.351337432861328,
+              "testLoss": 0.0695669874548912,
+              "testMetric": 16.11417007446289
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 105,
+          "lossTrain": 0.13561975955963135,
+          "lossTest": 0.12347307056188583,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.008712111040949821,
+              "trainMetric": 0.9793418049812317,
+              "testLoss": 0.010257834568619728,
+              "testMetric": 0.9816545844078064
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.04059881716966629,
+              "trainMetric": 0.967471718788147,
+              "testLoss": 0.04475656896829605,
+              "testMetric": 0.9903743863105774
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.01986963115632534,
+              "trainMetric": 0.9982650279998779,
+              "testLoss": 0.024628184735774994,
+              "testMetric": 0.9985702633857727
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.007123948540538549,
+              "trainMetric": 0.1931377798318863,
+              "testLoss": 0.008383399806916714,
+              "testMetric": 0.18714295327663422
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.029482215642929077,
+              "trainMetric": 8.648296356201172,
+              "testLoss": 0.03544707968831062,
+              "testMetric": 10.063916206359863
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 105,
+          "lossTrain": 0.10386963188648224,
+          "lossTest": 0.0713038370013237,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.0020207292400300503,
+              "trainMetric": 0.9969699382781982,
+              "testLoss": 0.002148713218048215,
+              "testMetric": 0.997477650642395
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.037984032183885574,
+              "trainMetric": 0.960685133934021,
+              "testLoss": 0.034275662153959274,
+              "testMetric": 0.9750590324401855
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.001703698537312448,
+              "trainMetric": 0.9986470937728882,
+              "testLoss": 0.001724077737890184,
+              "testMetric": 0.998478889465332
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.0064181252382695675,
+              "trainMetric": 0.1786862462759018,
+              "testLoss": 0.005104930140078068,
+              "testMetric": 0.15072759985923767
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.022641567513346672,
+              "trainMetric": 6.942244052886963,
+              "testLoss": 0.028050443157553673,
+              "testMetric": 8.010653495788574
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.15333636105060577,
+        "meanClientDeltaNorm": 0.26591310401757556,
+        "meanDistToMean": 0.21999848385651907,
+        "meanCosine": -0.01105789941114684,
+        "fracNegativeCosine": 1
+      },
+      "deltaM": -0.06971099450966942
+    },
+    {
+      "round": 21,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 110,
+          "lossTrain": 0.1636853665113449,
+          "lossTest": 0.14263248443603516,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.006486090365797281,
+              "trainMetric": 0.9894252419471741,
+              "testLoss": 0.008400186896324158,
+              "testMetric": 0.9855696558952332
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03534329682588577,
+              "trainMetric": 0.9578521251678467,
+              "testLoss": 0.03617057949304581,
+              "testMetric": 0.9682368636131287
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.0194382481276989,
+              "trainMetric": 0.9986952543258667,
+              "testLoss": 0.022166356444358826,
+              "testMetric": 0.996745228767395
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.005549202207475901,
+              "trainMetric": 0.1759863793849945,
+              "testLoss": 0.0065821632742881775,
+              "testMetric": 0.18637703359127045
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.06662613153457642,
+              "trainMetric": 15.38188648223877,
+              "testLoss": 0.06931320577859879,
+              "testMetric": 16.045082092285156
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 110,
+          "lossTrain": 0.13206873834133148,
+          "lossTest": 0.11879123747348785,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.00800010934472084,
+              "trainMetric": 0.9791231751441956,
+              "testLoss": 0.008491252548992634,
+              "testMetric": 0.9827426075935364
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.04017229005694389,
+              "trainMetric": 0.9678679704666138,
+              "testLoss": 0.044317979365587234,
+              "testMetric": 0.9892207384109497
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.01822321116924286,
+              "trainMetric": 0.9985359907150269,
+              "testLoss": 0.02284972183406353,
+              "testMetric": 0.998447060585022
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.0070084077306091785,
+              "trainMetric": 0.19165590405464172,
+              "testLoss": 0.008453741669654846,
+              "testMetric": 0.18892107903957367
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.028922230005264282,
+              "trainMetric": 8.517836570739746,
+              "testLoss": 0.034678541123867035,
+              "testMetric": 9.867915153503418
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 110,
+          "lossTrain": 0.10180462151765823,
+          "lossTest": 0.0700063556432724,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.001848581712692976,
+              "trainMetric": 0.9973319172859192,
+              "testLoss": 0.001962134847417474,
+              "testMetric": 0.997477650642395
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03722842410206795,
+              "trainMetric": 0.9611555337905884,
+              "testLoss": 0.03372441232204437,
+              "testMetric": 0.9744009971618652
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.0015416867099702358,
+              "trainMetric": 0.9987951517105103,
+              "testLoss": 0.0016088942065835,
+              "testMetric": 0.9986762404441833
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.006376374047249556,
+              "trainMetric": 0.1781567931175232,
+              "testLoss": 0.005030604545027018,
+              "testMetric": 0.14958691596984863
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.02228420041501522,
+              "trainMetric": 6.819941520690918,
+              "testLoss": 0.027680305764079094,
+              "testMetric": 7.986181735992432
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.1462482362985611,
+        "meanClientDeltaNorm": 0.24926269551118216,
+        "meanDistToMean": 0.2043492098649343,
+        "meanCosine": 0.005955965879062812,
+        "fracNegativeCosine": 0.3333333333333333
+      },
+      "deltaM": -0.08283994952370222
+    },
+    {
+      "round": 22,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 115,
+          "lossTrain": 0.1603807955980301,
+          "lossTest": 0.13990867137908936,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.0053803990595042706,
+              "trainMetric": 0.9900364875793457,
+              "testLoss": 0.007646618876606226,
+              "testMetric": 0.9866541028022766
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03473217412829399,
+              "trainMetric": 0.9580643773078918,
+              "testLoss": 0.03574277088046074,
+              "testMetric": 0.9691153764724731
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.01794123277068138,
+              "trainMetric": 0.9987249970436096,
+              "testLoss": 0.020655084401369095,
+              "testMetric": 0.9964815378189087
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.005489620380103588,
+              "trainMetric": 0.17591442167758942,
+              "testLoss": 0.00661526108160615,
+              "testMetric": 0.18825887143611908
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.06676550954580307,
+              "trainMetric": 15.395822525024414,
+              "testLoss": 0.06924893707036972,
+              "testMetric": 16.04241943359375
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 115,
+          "lossTrain": 0.1292622983455658,
+          "lossTest": 0.11528795212507248,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.0075983693823218346,
+              "trainMetric": 0.9800587892532349,
+              "testLoss": 0.008051860146224499,
+              "testMetric": 0.9840323328971863
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.04006599634885788,
+              "trainMetric": 0.9671857953071594,
+              "testLoss": 0.04382413253188133,
+              "testMetric": 0.9890324473381042
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.016753867268562317,
+              "trainMetric": 0.9987413287162781,
+              "testLoss": 0.020983440801501274,
+              "testMetric": 0.9983348250389099
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.00689648138359189,
+              "trainMetric": 0.18961173295974731,
+              "testLoss": 0.008592693135142326,
+              "testMetric": 0.19110803306102753
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.028323398903012276,
+              "trainMetric": 8.376254081726074,
+              "testLoss": 0.033835817128419876,
+              "testMetric": 9.673847198486328
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 115,
+          "lossTrain": 0.0999932736158371,
+          "lossTest": 0.06901701539754868,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.0016979123465716839,
+              "trainMetric": 0.9975165128707886,
+              "testLoss": 0.0018466179026290774,
+              "testMetric": 0.9976713061332703
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.036643363535404205,
+              "trainMetric": 0.961894690990448,
+              "testLoss": 0.03322567045688629,
+              "testMetric": 0.9744873046875
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.0013866483932361007,
+              "trainMetric": 0.998924732208252,
+              "testLoss": 0.001466029672883451,
+              "testMetric": 0.9986762404441833
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.006322619970887899,
+              "trainMetric": 0.17749936878681183,
+              "testLoss": 0.0049525597132742405,
+              "testMetric": 0.14836345613002777
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.021942349150776863,
+              "trainMetric": 6.769415855407715,
+              "testLoss": 0.027526140213012695,
+              "testMetric": 7.949182987213135
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.1334507018327713,
+        "meanClientDeltaNorm": 0.22951037685076395,
+        "meanDistToMean": 0.1879283388455709,
+        "meanCosine": 0.0015657621746261914,
+        "fracNegativeCosine": 0.3333333333333333
+      },
+      "deltaM": -0.08106769559669494
+    },
+    {
+      "round": 23,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 120,
+          "lossTrain": 0.15767927467823029,
+          "lossTest": 0.13790887594223022,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.004459063056856394,
+              "trainMetric": 0.9922007322311401,
+              "testLoss": 0.007324169855564833,
+              "testMetric": 0.9858991503715515
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03418268263339996,
+              "trainMetric": 0.9566973447799683,
+              "testLoss": 0.03524557128548622,
+              "testMetric": 0.9667355418205261
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.016621369868516922,
+              "trainMetric": 0.9988719820976257,
+              "testLoss": 0.01932600513100624,
+              "testMetric": 0.9964799880981445
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.005392980296164751,
+              "trainMetric": 0.17496870458126068,
+              "testLoss": 0.006605126895010471,
+              "testMetric": 0.1890290528535843
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.06710968166589737,
+              "trainMetric": 15.45703125,
+              "testLoss": 0.06940799951553345,
+              "testMetric": 15.967228889465332
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 120,
+          "lossTrain": 0.12570399045944214,
+          "lossTest": 0.11312514543533325,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.006795252673327923,
+              "trainMetric": 0.9820746183395386,
+              "testLoss": 0.007664147298783064,
+              "testMetric": 0.9857404828071594
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03930537775158882,
+              "trainMetric": 0.9675551652908325,
+              "testLoss": 0.0435326024889946,
+              "testMetric": 0.9908046126365662
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.015474596992135048,
+              "trainMetric": 0.9988976120948792,
+              "testLoss": 0.01938982680439949,
+              "testMetric": 0.9987677931785583
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.00684075802564621,
+              "trainMetric": 0.1883886158466339,
+              "testLoss": 0.00917067937552929,
+              "testMetric": 0.19893096387386322
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.027800733223557472,
+              "trainMetric": 8.239215850830078,
+              "testLoss": 0.03336789086461067,
+              "testMetric": 9.524882316589355
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 120,
+          "lossTrain": 0.09829859435558319,
+          "lossTest": 0.06797977536916733,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.0015604033833369613,
+              "trainMetric": 0.9976333379745483,
+              "testLoss": 0.0017666139174252748,
+              "testMetric": 0.9978436827659607
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03614246845245361,
+              "trainMetric": 0.9620844721794128,
+              "testLoss": 0.03287486359477043,
+              "testMetric": 0.9726374745368958
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.001244736253283918,
+              "trainMetric": 0.9989445805549622,
+              "testLoss": 0.0013550646835938096,
+              "testMetric": 0.9986762404441833
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.006280066911131144,
+              "trainMetric": 0.17700140178203583,
+              "testLoss": 0.004859562497586012,
+              "testMetric": 0.1467408835887909
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.021604390814900398,
+              "trainMetric": 6.656920909881592,
+              "testLoss": 0.027123678475618362,
+              "testMetric": 7.806056976318359
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.12609747052192688,
+        "meanClientDeltaNorm": 0.218010683854421,
+        "meanDistToMean": 0.1783566822608312,
+        "meanCosine": -0.0008155700440208117,
+        "fracNegativeCosine": 0.3333333333333333
+      },
+      "deltaM": -0.0889664427658963
+    },
+    {
+      "round": 24,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 125,
+          "lossTrain": 0.15394684672355652,
+          "lossTest": 0.13486610352993011,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.0035211879294365644,
+              "trainMetric": 0.9942150115966797,
+              "testLoss": 0.005492507014423609,
+              "testMetric": 0.9892191290855408
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.033586785197257996,
+              "trainMetric": 0.9563027024269104,
+              "testLoss": 0.034849319607019424,
+              "testMetric": 0.9668664336204529
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.015415512025356293,
+              "trainMetric": 0.9990465044975281,
+              "testLoss": 0.018086910247802734,
+              "testMetric": 0.9963498115539551
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.005301153287291527,
+              "trainMetric": 0.17382533848285675,
+              "testLoss": 0.006358167622238398,
+              "testMetric": 0.18476544320583344
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.06641305238008499,
+              "trainMetric": 15.35291576385498,
+              "testLoss": 0.07007919996976852,
+              "testMetric": 16.257938385009766
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 125,
+          "lossTrain": 0.12258291244506836,
+          "lossTest": 0.10991492122411728,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.00604914641007781,
+              "trainMetric": 0.9833152294158936,
+              "testLoss": 0.007256324868649244,
+              "testMetric": 0.9865550994873047
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03878004103899002,
+              "trainMetric": 0.9673717021942139,
+              "testLoss": 0.04301479458808899,
+              "testMetric": 0.9897738695144653
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.014402443543076515,
+              "trainMetric": 0.9990699291229248,
+              "testLoss": 0.0181459691375494,
+              "testMetric": 0.9986642003059387
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.00682235648855567,
+              "trainMetric": 0.1895618736743927,
+              "testLoss": 0.00902667734771967,
+              "testMetric": 0.1976080983877182
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.02714533358812332,
+              "trainMetric": 7.9833455085754395,
+              "testLoss": 0.03247116133570671,
+              "testMetric": 9.292241096496582
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 125,
+          "lossTrain": 0.09672240167856216,
+          "lossTest": 0.06718657910823822,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.0014281534822657704,
+              "trainMetric": 0.9977896213531494,
+              "testLoss": 0.0016506137326359749,
+              "testMetric": 0.9978436827659607
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03568762168288231,
+              "trainMetric": 0.9631279706954956,
+              "testLoss": 0.032639022916555405,
+              "testMetric": 0.9734395146369934
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.0011171819642186165,
+              "trainMetric": 0.9989889860153198,
+              "testLoss": 0.0012524841586127877,
+              "testMetric": 0.9986762404441833
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.0062342798337340355,
+              "trainMetric": 0.17646512389183044,
+              "testLoss": 0.004812912549823523,
+              "testMetric": 0.14612190425395966
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.02126249112188816,
+              "trainMetric": 6.660412311553955,
+              "testLoss": 0.026831546798348427,
+              "testMetric": 7.855759620666504
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.12334313988685608,
+        "meanClientDeltaNorm": 0.213672603170077,
+        "meanDistToMean": 0.1746168831984202,
+        "meanCosine": -0.0009134249994531274,
+        "fracNegativeCosine": 0.6666666666666666
+      },
+      "deltaM": -0.08600958053184363
+    },
+    {
+      "round": 25,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 130,
+          "lossTrain": 0.151389941573143,
+          "lossTest": 0.13185182213783264,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.0029702100437134504,
+              "trainMetric": 0.9956963062286377,
+              "testLoss": 0.005007399711757898,
+              "testMetric": 0.9900389909744263
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03311045095324516,
+              "trainMetric": 0.9561140537261963,
+              "testLoss": 0.03446964547038078,
+              "testMetric": 0.9668969511985779
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.014409106224775314,
+              "trainMetric": 0.9990707635879517,
+              "testLoss": 0.01692448928952217,
+              "testMetric": 0.9964815378189087
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.005246666260063648,
+              "trainMetric": 0.17347165942192078,
+              "testLoss": 0.0063416301272809505,
+              "testMetric": 0.18532542884349823
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.06624400615692139,
+              "trainMetric": 15.315896987915039,
+              "testLoss": 0.06910865753889084,
+              "testMetric": 15.998784065246582
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 130,
+          "lossTrain": 0.12049182504415512,
+          "lossTest": 0.10549016296863556,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.005648253485560417,
+              "trainMetric": 0.9856587648391724,
+              "testLoss": 0.0055257100611925125,
+              "testMetric": 0.9904093742370605
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.0381941981613636,
+              "trainMetric": 0.966198742389679,
+              "testLoss": 0.04272237792611122,
+              "testMetric": 0.9853352904319763
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.0134347602725029,
+              "trainMetric": 0.9990684390068054,
+              "testLoss": 0.016780512407422066,
+              "testMetric": 0.9987680315971375
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.007123874966055155,
+              "trainMetric": 0.1939176470041275,
+              "testLoss": 0.008238227106630802,
+              "testMetric": 0.18841604888439178
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.02683081291615963,
+              "trainMetric": 8.054930686950684,
+              "testLoss": 0.032223328948020935,
+              "testMetric": 9.313217163085938
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 130,
+          "lossTrain": 0.09530344605445862,
+          "lossTest": 0.0662757009267807,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.0013410454848781228,
+              "trainMetric": 0.9978846311569214,
+              "testLoss": 0.0015829437179490924,
+              "testMetric": 0.9979761242866516
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03547051176428795,
+              "trainMetric": 0.9636281728744507,
+              "testLoss": 0.03243350237607956,
+              "testMetric": 0.9743601679801941
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.0010206906590610743,
+              "trainMetric": 0.999089777469635,
+              "testLoss": 0.0011698271846398711,
+              "testMetric": 0.9986762404441833
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.006186919752508402,
+              "trainMetric": 0.17598582804203033,
+              "testLoss": 0.004788282793015242,
+              "testMetric": 0.1458573192358017
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.020756062120199203,
+              "trainMetric": 6.499567985534668,
+              "testLoss": 0.026301143690943718,
+              "testMetric": 7.717154026031494
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.11476875096559525,
+        "meanClientDeltaNorm": 0.2007707953453064,
+        "meanDistToMean": 0.16484888394673666,
+        "meanCosine": -0.010277002739409605,
+        "fracNegativeCosine": 1
+      },
+      "deltaM": -0.07572039724227683
+    },
+    {
+      "round": 26,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 135,
+          "lossTrain": 0.1495836228132248,
+          "lossTest": 0.13050620257854462,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.0025938907638192177,
+              "trainMetric": 0.9963864088058472,
+              "testLoss": 0.00492471968755126,
+              "testMetric": 0.9915979504585266
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.032800398766994476,
+              "trainMetric": 0.9553651809692383,
+              "testLoss": 0.034294601529836655,
+              "testMetric": 0.9684135317802429
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.013516886159777641,
+              "trainMetric": 0.9990952610969543,
+              "testLoss": 0.015887539833784103,
+              "testMetric": 0.9964815378189087
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.00519792502745986,
+              "trainMetric": 0.17302851378917694,
+              "testLoss": 0.006256984081119299,
+              "testMetric": 0.18439488112926483
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.06641995161771774,
+              "trainMetric": 15.336564064025879,
+              "testLoss": 0.06914235651493073,
+              "testMetric": 15.912736892700195
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 135,
+          "lossTrain": 0.11778151988983154,
+          "lossTest": 0.10366600006818771,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.00503771286457777,
+              "trainMetric": 0.9865028262138367,
+              "testLoss": 0.005579427815973759,
+              "testMetric": 0.9916888475418091
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03801887109875679,
+              "trainMetric": 0.967225193977356,
+              "testLoss": 0.04253128916025162,
+              "testMetric": 0.9834354519844055
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.012557369656860828,
+              "trainMetric": 0.9992132782936096,
+              "testLoss": 0.01586160436272621,
+              "testMetric": 0.9988810420036316
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.006677255500108004,
+              "trainMetric": 0.1884566992521286,
+              "testLoss": 0.007150715682655573,
+              "testMetric": 0.17086809873580933
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.026370305567979813,
+              "trainMetric": 7.83494758605957,
+              "testLoss": 0.03254295885562897,
+              "testMetric": 9.375943183898926
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 135,
+          "lossTrain": 0.09403837472200394,
+          "lossTest": 0.06528884172439575,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.0012202054494991899,
+              "trainMetric": 0.9982093572616577,
+              "testLoss": 0.0014922183472663164,
+              "testMetric": 0.9979761242866516
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.035175446420907974,
+              "trainMetric": 0.9638470411300659,
+              "testLoss": 0.0321752093732357,
+              "testMetric": 0.974714457988739
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.0009120089816860855,
+              "trainMetric": 0.9992424249649048,
+              "testLoss": 0.001083924318663776,
+              "testMetric": 0.9989855885505676
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.006131254602223635,
+              "trainMetric": 0.17533494532108307,
+              "testLoss": 0.004672916606068611,
+              "testMetric": 0.14385436475276947
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.020438237115740776,
+              "trainMetric": 6.534273624420166,
+              "testLoss": 0.025864576920866966,
+              "testMetric": 7.681947231292725
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.1107173040509224,
+        "meanClientDeltaNorm": 0.19409832855065665,
+        "meanDistToMean": 0.15978399912516275,
+        "meanCosine": -0.013734168683489164,
+        "fracNegativeCosine": 1
+      },
+      "deltaM": -0.09468421170002857
+    },
+    {
+      "round": 27,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 140,
+          "lossTrain": 0.1477629542350769,
+          "lossTest": 0.12933407723903656,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.0023390091955661774,
+              "trainMetric": 0.9967405796051025,
+              "testLoss": 0.0042264205403625965,
+              "testMetric": 0.9917535185813904
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03253842145204544,
+              "trainMetric": 0.9550376534461975,
+              "testLoss": 0.034264035522937775,
+              "testMetric": 0.9671042561531067
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.012661400251090527,
+              "trainMetric": 0.999168872833252,
+              "testLoss": 0.014998611994087696,
+              "testMetric": 0.9962180256843567
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.005176382139325142,
+              "trainMetric": 0.17301319539546967,
+              "testLoss": 0.006192474626004696,
+              "testMetric": 0.18346181511878967
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.06631552428007126,
+              "trainMetric": 15.341473579406738,
+              "testLoss": 0.06965252012014389,
+              "testMetric": 16.178768157958984
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 140,
+          "lossTrain": 0.11544007807970047,
+          "lossTest": 0.10152832418680191,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.004471705295145512,
+              "trainMetric": 0.9886573553085327,
+              "testLoss": 0.0059534343890845776,
+              "testMetric": 0.989970862865448
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03764330595731735,
+              "trainMetric": 0.9651438593864441,
+              "testLoss": 0.04198980703949928,
+              "testMetric": 0.9843458533287048
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.011672143824398518,
+              "trainMetric": 0.9992128014564514,
+              "testLoss": 0.015029034577310085,
+              "testMetric": 0.9988810420036316
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.006347299087792635,
+              "trainMetric": 0.18409988284111023,
+              "testLoss": 0.0068672820925712585,
+              "testMetric": 0.1641409993171692
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.026323121041059494,
+              "trainMetric": 8.053128242492676,
+              "testLoss": 0.031688760966062546,
+              "testMetric": 9.216672897338867
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 140,
+          "lossTrain": 0.09252600371837616,
+          "lossTest": 0.06450119614601135,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.001109699602238834,
+              "trainMetric": 0.9984360337257385,
+              "testLoss": 0.001396302250213921,
+              "testMetric": 0.9981088042259216
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03498288616538048,
+              "trainMetric": 0.9639201164245605,
+              "testLoss": 0.03209257125854492,
+              "testMetric": 0.9739813804626465
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.0008111126371659338,
+              "trainMetric": 0.9994118213653564,
+              "testLoss": 0.0009973010746762156,
+              "testMetric": 0.9990841746330261
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.006071551237255335,
+              "trainMetric": 0.17465774714946747,
+              "testLoss": 0.004608287941664457,
+              "testMetric": 0.1427692472934723
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.019745906814932823,
+              "trainMetric": 6.334706783294678,
+              "testLoss": 0.02540673315525055,
+              "testMetric": 7.569161891937256
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.10476496070623398,
+        "meanClientDeltaNorm": 0.18488642573356628,
+        "meanDistToMean": 0.1529108186562856,
+        "meanCosine": -0.02151351422071457,
+        "fracNegativeCosine": 1
+      },
+      "deltaM": -0.10085853594643465
+    },
+    {
+      "round": 28,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 145,
+          "lossTrain": 0.14634625613689423,
+          "lossTest": 0.1283087283372879,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.002185822930186987,
+              "trainMetric": 0.9967924356460571,
+              "testLoss": 0.003989688586443663,
+              "testMetric": 0.991419792175293
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.032451122999191284,
+              "trainMetric": 0.9548200368881226,
+              "testLoss": 0.034392841160297394,
+              "testMetric": 0.9667119383811951
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.011916539631783962,
+              "trainMetric": 0.9992053508758545,
+              "testLoss": 0.014058375731110573,
+              "testMetric": 0.9969192743301392
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.0051596034318208694,
+              "trainMetric": 0.1727418303489685,
+              "testLoss": 0.00625718105584383,
+              "testMetric": 0.18488267064094543
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.06621824204921722,
+              "trainMetric": 15.329936981201172,
+              "testLoss": 0.06961063295602798,
+              "testMetric": 16.18025016784668
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 145,
+          "lossTrain": 0.11262458562850952,
+          "lossTest": 0.09788968414068222,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.0039354125037789345,
+              "trainMetric": 0.9890092015266418,
+              "testLoss": 0.004541588947176933,
+              "testMetric": 0.994105339050293
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03697483614087105,
+              "trainMetric": 0.9636052846908569,
+              "testLoss": 0.041896454989910126,
+              "testMetric": 0.9832944869995117
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.010838398709893227,
+              "trainMetric": 0.9993464946746826,
+              "testLoss": 0.01386033184826374,
+              "testMetric": 0.9988808035850525
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.0062103355303406715,
+              "trainMetric": 0.18173231184482574,
+              "testLoss": 0.006160007324069738,
+              "testMetric": 0.15915338695049286
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.02579793892800808,
+              "trainMetric": 7.875657558441162,
+              "testLoss": 0.031431298702955246,
+              "testMetric": 9.294503211975098
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 145,
+          "lossTrain": 0.0913039892911911,
+          "lossTest": 0.06359242647886276,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.0010142512619495392,
+              "trainMetric": 0.998664379119873,
+              "testLoss": 0.0013244756264612079,
+              "testMetric": 0.9981948733329773
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03477796912193298,
+              "trainMetric": 0.9640741348266602,
+              "testLoss": 0.031918302178382874,
+              "testMetric": 0.9741542935371399
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.0007327429484575987,
+              "trainMetric": 0.9994851350784302,
+              "testLoss": 0.0009358114912174642,
+              "testMetric": 0.9992812275886536
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.006015304941684008,
+              "trainMetric": 0.17407812178134918,
+              "testLoss": 0.004552560858428478,
+              "testMetric": 0.14203067123889923
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.01928330957889557,
+              "trainMetric": 6.257791042327881,
+              "testLoss": 0.024861281737685204,
+              "testMetric": 7.5241217613220215
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.10144273191690445,
+        "meanClientDeltaNorm": 0.17876715461413065,
+        "meanDistToMean": 0.1480533480644226,
+        "meanCosine": -0.02178363874554634,
+        "fracNegativeCosine": 1
+      },
+      "deltaM": -0.09582941095910553
+    },
+    {
+      "round": 29,
+      "clientMetrics": [
+        {
+          "id": "edb1958f-7ca6-42d8-afb6-67b97635280f",
+          "epoch": 150,
+          "lossTrain": 0.14543244242668152,
+          "lossTest": 0.12659047544002533,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.0023239506408572197,
+              "trainMetric": 0.9963989853858948,
+              "testLoss": 0.00457799294963479,
+              "testMetric": 0.9936860203742981
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03238216042518616,
+              "trainMetric": 0.9569878578186035,
+              "testLoss": 0.033135440200567245,
+              "testMetric": 0.9692767262458801
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.01126264501363039,
+              "trainMetric": 0.9991723895072937,
+              "testLoss": 0.013232091441750526,
+              "testMetric": 0.997621476650238
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.005069407634437084,
+              "trainMetric": 0.17149344086647034,
+              "testLoss": 0.00624848622828722,
+              "testMetric": 0.18499022722244263
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.06624697148799896,
+              "trainMetric": 15.3434419631958,
+              "testLoss": 0.06939645856618881,
+              "testMetric": 16.140371322631836
+            }
+          ]
+        },
+        {
+          "id": "3ea3cd18-fec1-4bf4-a5a4-2d2e195216ce",
+          "epoch": 150,
+          "lossTrain": 0.11070950329303741,
+          "lossTest": 0.09776546061038971,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.0032464286778122187,
+              "trainMetric": 0.9905823469161987,
+              "testLoss": 0.004901830572634935,
+              "testMetric": 0.9915261268615723
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.03662536293268204,
+              "trainMetric": 0.9647457599639893,
+              "testLoss": 0.041526876389980316,
+              "testMetric": 0.982833206653595
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.010199211537837982,
+              "trainMetric": 0.9993898272514343,
+              "testLoss": 0.013282557018101215,
+              "testMetric": 0.9988810420036316
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.00594303896650672,
+              "trainMetric": 0.17918218672275543,
+              "testLoss": 0.0065206424333155155,
+              "testMetric": 0.16175144910812378
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.025951722636818886,
+              "trainMetric": 8.050013542175293,
+              "testLoss": 0.03153355047106743,
+              "testMetric": 9.618492126464844
+            }
+          ]
+        },
+        {
+          "id": "a9df9a01-ce85-4ca1-a51d-af7878052660",
+          "epoch": 150,
+          "lossTrain": 0.09016387909650803,
+          "lossTest": 0.06269735097885132,
+          "perHead": [
+            {
+              "task": "semseg",
+              "trainLoss": 0.000929316389374435,
+              "trainMetric": 0.998664379119873,
+              "testLoss": 0.001222591265104711,
+              "testMetric": 0.9982810020446777
+            },
+            {
+              "task": "edge",
+              "trainLoss": 0.034552037715911865,
+              "trainMetric": 0.9647771716117859,
+              "testLoss": 0.031754907220602036,
+              "testMetric": 0.9747670292854309
+            },
+            {
+              "task": "saliency",
+              "trainLoss": 0.0006563108181580901,
+              "trainMetric": 0.9996438026428223,
+              "testLoss": 0.0008653760305605829,
+              "testMetric": 0.9994924664497375
+            },
+            {
+              "task": "depth",
+              "trainLoss": 0.005961696617305279,
+              "trainMetric": 0.17349253594875336,
+              "testLoss": 0.004529518075287342,
+              "testMetric": 0.14184798300266266
+            },
+            {
+              "task": "normal",
+              "trainLoss": 0.018873808905482292,
+              "trainMetric": 6.174592971801758,
+              "testLoss": 0.02432495914399624,
+              "testMetric": 7.182408809661865
+            }
+          ]
+        }
+      ],
+      "serverMetrics": {
+        "meanDeltaNorm": 0.09967360645532608,
+        "meanClientDeltaNorm": 0.1763929376999537,
+        "meanDistToMean": 0.14609016478061676,
+        "meanCosine": -0.024322145928939182,
+        "fracNegativeCosine": 1
+      },
+      "deltaM": -0.09713230038415659
+    }
+  ],
+  "footer": {
+    "timestamp": "2026-03-13T07:07:24.184Z",
+    "totalTime": 954.4631000000238,
+    "deltaM": -0.09713230038415659
+  }
+}
