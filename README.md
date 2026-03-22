@@ -99,6 +99,7 @@ npm run build
 
 ## Project Structure
 
+```text
 HC-FMTL-Visualization-Analytics-System/
 ├── Experiments/                         # Experiment pipeline, scripts, logs, and ablation outputs
 │   ├── ablation/
@@ -148,6 +149,7 @@ HC-FMTL-Visualization-Analytics-System/
 │       ├── evaluation/
 │       └── models/
 └── Requirements Elicitation/           # Requirements and planning materials
+```
 
 ---
 
